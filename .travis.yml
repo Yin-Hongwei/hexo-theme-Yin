@@ -1,39 +1,29 @@
 language: node_js
-# nodejs版本
-node_js: 
-    - '6'
- 
-# Travis-CI Caching
-cache:
-  directories:
-    - node_modules
- 
- 
+node_js: stable
+
 # S: Build Lifecycle
 install:
   - npm install
- 
-before_script:
- 
-# 无其他依赖项所以执行npm run build 构建就行了
+
+
+#before_script:
+ # - npm install -g gulp
+
 script:
-  - npm run build
- 
+  - hexo g
+
 after_script:
-  - cd ./dist
+  - cd ./public
   - git init
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
   - git add .
-  - git commit -m "Update tools"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
- 
-#指定分支，只有指定的分支提交时才会运行脚本
+
 branches:
   only:
     - master
 env:
  global:
-   # 我将其添加到了travis-ci的环境变量中
-   #- GH_REF: github.com/yimogit/metools.git 
