@@ -1,0 +1,34 @@
+# html lang
+language: en
+
+# main menu navigation
+menu:
+  关于: /about
+  存档: /archives
+  标签: /tags
+
+# cdn
+cdn:
+  css:
+    fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
+  js:
+    jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
+    anime: https://hecdn.jsdelivr.net/npm/animejs@latest/anime.min.js
+    velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
+    velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js
+    fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
+
+
+# stylesheets loaded in the <head>
+stylesheets:
+  - /css/style.css
+
+# scripts loaded in the end of the body
+scripts:
+- /js/main.js
+
+# SNS
+social:
+  envelope-o: yinhongwei96@126.com
+  github: https://github.com/Yin-Hongwei
+  weibo: https://weibo.com/u/6746100432?topnav=1&wvr=6&topsug=1
