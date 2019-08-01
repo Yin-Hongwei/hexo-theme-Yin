@@ -9,6 +9,7 @@ cache:
 # S: Build Lifecycle
 install:
   - npm install
+  - npm install hexo-deployer-git --save
 
 before_script:
  # - npm install -g gulp
