@@ -1,4 +1,5 @@
 # hexo-theme-Yin
+<<<<<<< HEAD
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Yin-Hongwei/hexo-theme-Yin/master/source/favicon.ico">
@@ -41,3 +42,5 @@ theme: hexo-theme-Yin
 ```
 npm install hexo-renderer-jade hexo-renderer-sass --save
 ```
+=======
+>>>>>>> f3813661e31c2def4930a313f8b83d310755680a
