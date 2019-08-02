@@ -1,18 +1,12 @@
 # hexo-theme-Yin
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Yin-Hongwei/hexo-theme-Yin/master/source/favicon.ico">
-</p>
+# Screenshots
+
+![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/theme.jpg)
 
 <p align="center">
   <a href="https://travis-ci.org/"><img alt="JavaScript Style Guide" src="https://travis-ci.org/Yin-Hongwei/hexo-theme-Yin.svg?branch=master"></a>
 </p>
-
-
-
-# Screenshots
-
-![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/theme.jpg)
 
 
 
