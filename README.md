@@ -6,6 +6,7 @@
 
 <p align="center">
   <a href="https://travis-ci.org/"><img alt="JavaScript Style Guide" src="https://travis-ci.org/Yin-Hongwei/hexo-theme-Yin.svg?branch=master"></a>
+  <a href="https://travis-ci.org/"><img alt="JavaScript Style Guide" src="https://img.shields.io/github/license/Yin-Hongwei/hexo-theme-Yin"></a>
 </p>
 
 
@@ -35,3 +36,4 @@ theme: hexo-theme-Yin
 ```
 npm install hexo-renderer-jade hexo-renderer-sass --save
 ```
+
