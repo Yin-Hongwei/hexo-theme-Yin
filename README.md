@@ -1,4 +1,7 @@
-<h1><center>hexo-theme-Yin</center></h1>
+<h1 align="center">hexo-theme-Yin</h1>
+
+
+
 ## Screenshots
 
 ![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/theme.jpg)
