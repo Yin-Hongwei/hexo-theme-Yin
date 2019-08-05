@@ -24,7 +24,7 @@ Watch online demo：[Hongwei Blog](https://yin-hongwei.github.io/)
 1. Execute the following commands in **Hexo directory**.
 
 ```
-git clone -b master https://github.com/Yin-Hongwei/hexo-theme-Yin
+git clone -b master https://github.com/Yin-Hongwei/hexo-theme-Yin.git
 ```
 
 1. Change the `theme` property to `hexo-theme-Yin` of `_config.yml` in **Hexo directory**.
