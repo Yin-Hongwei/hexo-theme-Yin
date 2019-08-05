@@ -1,6 +1,4 @@
 <h1><center>hexo-theme-Yin</center></h1>
-
-
 ## Screenshots
 
 ![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/theme.jpg)
@@ -45,5 +43,3 @@ npm install hexo-renderer-jade hexo-renderer-sass --save
 [MIT](http://opensource.org/licenses/MIT)
 
 Copyright (c) 2019 Yin-Hongwei
-
- 
