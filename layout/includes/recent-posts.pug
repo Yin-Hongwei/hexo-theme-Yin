@@ -1,7 +1,7 @@
 - let postDate = page.posts.data.sort(function postSort(a,b) {
   //-console.log(b.updated)
   - if(a.top && b.top) {
-    - if(a.top == b.top) {
+    - if(a.top === b.top) {
       - if(theme.display_updated) {
         - return b.updated - a.updated
       - }
@@ -29,11 +29,14 @@ if page.posts.length > 0
             a(href=url_for(link))= post.title || _p('no_title')
           - }
         - if (post.date) {
-          span.post-time
+          span.post-time='发布时间: '
             time(datetime=post.date.toJSON())= date(post.date, date_format)
         - }
         - if (post.tags.length>0) {
-          span.recent-post-tags!= partial('./includes/partial/tag',{currPost: post,className: 'post-tag'})
+          span.recent-post-tags='标签:'
+            - post.tags.forEach(function (tag){
+            a(class='post-tag' href='javascript:void(0)' date-tags=tag.name)= ' ' + tag.name
+            - })
         - }
         if (post.abstract)
           .recent-post-abstract

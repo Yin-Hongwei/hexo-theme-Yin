@@ -1,18 +1,8 @@
-@media screen and (min-width: $sm)
-  #post
-    width: 60%
-
-@media screen and (min-width: $sm) and (max-width: $bg)
-  #post
-    width: 70%
-
-@media screen and (max-width: $bg)
-  #post
-    width: 90%
-
 $base-style
   h1
     font-size: 2em
+    padding-bottom 16px
+    border-bottom: 1px solid $color-border
   h2
     font-size: 1.5em
   h3
@@ -23,7 +13,7 @@ $base-style
     font-size: 1em
   h6
     font-size: 1em
-    color: $color-grey
+    color: $color-dark-grey
   hr
     border: 1px dashed $color-border
   strong
@@ -62,31 +52,17 @@ $base-style
   @extend $base-style
   clearfix()
   margin auto
-  background-color white
-  color: color-default
-  padding: $article-padding
-  border-radius: 4px
-  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
-
-  p, table
-    line-height: line-height
-    margin: line-height 0
+  border-bottom: 1px solid $color-border
 
   h1, h2, h3, h4, h5, h6
     font-weight: bold
+    line-height: $line-height-title
+    margin: $line-height-title 0
 
-  h1, h2, h3, h4, h5, h6
-    line-height: line-height-title
-    margin: line-height-title 0
   a
     color: #7a9eb8
     &:hover
       color: $color-light-blue
-  ul, ol, dl
-    margin-top: line-height
-    margin-bottom: line-height
 
   table
     width: 100%
@@ -107,7 +83,7 @@ $base-style
     max-width: 100%
     height: auto
     display: block
-    margin: auto
+    margin: 5px auto
     padding: $img-border-padding
     border: 1px solid $img-border-color
     transition: all 0.2s
@@ -119,18 +95,10 @@ $base-style
     border: none
 
   blockquote
-    font-family: $font-serif
-    font-size: 1.4em
-    margin: line-height 20px
-    text-align: center
-    footer
-      font-size: font-size
-      margin: line-height 0
-      font-family: font-sans
-      cite
-        &:before
-          content: "—"
-          padding: 0 0.5em
+    margin: 5px 0
+    border-left: .25em solid $color-grey;
+    color: #6a737d;
+    padding: 0 1em;
 
   .pullquote
     text-align: left
@@ -164,23 +132,3 @@ $base-style
       height: 100%
       margin-top: 0
 
-.article-gallery
-  background: #000
-  position: relative
-
-.article-gallery-photos
-  position: relative
-  overflow: hidden
-
-.article-gallery-img
-  display: none
-  max-width: 100%
-  &:first-child
-    display: block
-  &.loaded
-    position: absolute
-    display: block
-  img
-    display: block
-    max-width: 100%
-    margin: 0 auto
