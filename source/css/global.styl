@@ -9,19 +9,21 @@ body
   flex-direction: column
   min-height: 100%
   background-color $theme-body-color
-  color: $font-black
+  color: $color-black
   font-size: $font-size
   font-family: $font-family
   line-height: $text-line-height
   -webkit-text-size-adjust: 100%
 
-html, body, #container
+#content-outer
+ flex 1
+
+html, body
   height: 100%
 
 a
   text-decoration: none
-  color: $color-light-black
-
+  color: $color-black
   img, video
     max-width: 100%
     height: auto
@@ -33,6 +35,7 @@ a
 
 h1, h2, h3, h4, h5, h6, p, div
   margin 0
+  //color: #f8f8f8
 
 *
   box-sizing: border-box
@@ -42,15 +45,6 @@ table
   width: 100%
   border-spacing: 0
   border-collapse: collapse
-
-.outer
-  clearfix()
-  max-width: ($column-width + $gutter-width) * $columns + $gutter-width
-  margin: 0 auto
-  padding: 0 $gutter-width
-
-.inner
-  column($columns)
 
 .left, .alignleft
   float: left
@@ -67,7 +61,7 @@ table
   #archive
   #post
   #about
-    width 50%
+    width 55%
 
 @media screen and (min-width: $sm) and (max-width: $bg)
   #recent-posts

@@ -1,5 +1,4 @@
 - let postDate = page.posts.data.sort(function postSort(a,b) {
-  //-console.log(b.updated)
   - if(a.top && b.top) {
     - if(a.top === b.top) {
       - if(theme.display_updated) {
@@ -17,8 +16,10 @@
   - }
   - return b.date - a.date
 - })
+
 if page.posts.length > 0
   section#recent-posts
+    h1.home-title= config.title
     each post in postDate
       .recent-post-item
         - let link = post.link || post.path

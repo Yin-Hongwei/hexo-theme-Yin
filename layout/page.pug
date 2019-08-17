@@ -10,5 +10,10 @@ block content
     article#about
       h1.about-title= page.title
       hr
+      if(theme.social)
+        #site-social-icons
+          each url, icon in theme.social
+           a.social-icon(href=url target="_blank")
+             i(class="fa-" + icon + " fa" )
       .article-container!= page.content
     include includes/partial/pagination.pug
