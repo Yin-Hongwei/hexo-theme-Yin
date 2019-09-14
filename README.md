@@ -1,5 +1,4 @@
 <h1 align="center">hexo-theme-Yin</h1>
-
 ## Screenshots
 
 ![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/Yin.png)
