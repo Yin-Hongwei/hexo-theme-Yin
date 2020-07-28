@@ -1,13 +1,15 @@
 <h1 align="center">hexo-theme-Yin</h1>
 
-## Screenshots
-
-![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/Yin.png)
 
 <p align="center">
   <a href="https://travis-ci.org/"><img alt="JavaScript Style Guide" src="https://travis-ci.org/Yin-Hongwei/hexo-theme-Yin.svg?branch=master"></a>
   <a href=""><img alt="license" src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat"></a>
 </p>
+
+## Screenshots
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh6zuq38qwj31c00u0k21.jpg)
+
 
 
 
