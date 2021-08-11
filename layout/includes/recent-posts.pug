@@ -1,40 +1,17 @@
-if page.posts.length > 0
-  section#recent-posts
-    //- h1.home-title= config.title
-    each post in page.posts.data
-      .recent-post-item
-        - let link = post.link || post.path
-        .post-title
-          - if (post.top) {
-            a.fa.fa-toggle-up.stick-top(href=url_for(link))= post.title || _p('no_title')
-          - } else {
-            a(href=url_for(link))= post.title || _p('no_title')
-          - }
-        - if (post.date) {
-          span.post-time='发布时间: '
-            time(datetime=post.date.toJSON())= date(post.date, date_format)
-        - }
-        - if (post.tags.length>0) {
-          span.recent-post-tags='标签:'
-            - post.tags.forEach(function (tag){
-            a(class='post-tag' href='javascript:void(0)' date-tags=tag.name)= ' ' + tag.name
-            - })
-        - }
-        if (post.abstract)
-          .recent-post-abstract
-            p.fa.fa-chain #{post.abstract}
-        - let truncateLength = typeof theme.truncate_length === 'number' ? theme.truncate_length : 300
-        if post.excerpt || (post.photos && post.photos[0])
-          - let content = ''
-          if post.photos && post.photos[0]
-            - content += '<p><img src="' + post.photos[0] + '" alt="' + post.photos[1] + '"></p>'
-          if post.excerpt
-            - content += post.excerpt
-          .recent-post-content!= content
-        else if truncateLength
-          - const content = strip_html(post.content)
-          - let expert = content.substring(0, truncateLength)
-          - content.length > truncateLength ? expert += ' ...' : ''
-          .recent-post-content!= expert
-        .read-more
-          a.more(href=url_for(link) + '#more')= _p('ReadMore')
+if body
+  div!= body
+else
+  include ./mixins/article-sort.pug
+  aside#sidebar
+    div.author-img
+      img(src="/img/tou.jpg")
+    div.author-info
+      if(theme.author)
+        h1.author= theme.author
+      if(theme.social)
+        #site-social-icons
+          each url, icon in theme.social
+            a.social-icon(href=url target="_blank")
+              i(class="fa-" + icon + " fa" )
+  article#archive
+    +articleSort(page.posts)

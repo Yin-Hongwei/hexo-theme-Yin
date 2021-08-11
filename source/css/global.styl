@@ -1,82 +1,94 @@
-html
-  font-size: $rem
+html {
+  font-size: $rem;
+}
 
-body
-  margin: 0
-  padding: 0
-  position: relative
-  display: flex
-  flex-direction: column
-  min-height: 100%
-  background-color $theme-body-color
-  color: $color-black
-  font-size: $font-size
-  font-family: $font-family
-  line-height: $text-line-height
-  -webkit-text-size-adjust: 100%
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: $theme-body-color;
+  color: $color-black-light;
+  font-size: $font-size;
+  font-family: $font-family;
+  line-height: $text-line-height;
+  -webkit-text-size-adjust: 100%;
+}
 
-#content-outer
- flex 1
+html, body {
+  height: 100%;
+}
 
-html, body
-  height: 100%
+#content-outer {
+  flex: 1;
+}
 
-a
-  text-decoration: none
-  color: $color-black
-  img, video
-    max-width: 100%
-    height: auto
-    display: block
-    margin: auto
-    padding: $img-border-padding
-    border: 1px solid $img-border-color
-    transition: all 0.2s
+a {
+  text-decoration: none;
+  color: $color-black-light;
 
-h1, h2, h3, h4, h5, h6, p, div
-  margin 0
-  //color: #f8f8f8
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+    padding: $img-border-padding;
+    border: 1px solid $img-border-color;
+    transition: all 0.2s;
+  }
+}
 
-*
-  box-sizing: border-box
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+}
 
-table
-  overflow: auto
-  width: 100%
-  border-spacing: 0
-  border-collapse: collapse
+* {
+  box-sizing: border-box;
+}
 
-.left, .alignleft
-  float: left
+table {
+  overflow: auto;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
 
-.right, .alignright
-  float: right
+.left, .alignleft {
+  float: left;
+}
 
-.clear
-  clear: both
+.right, .alignright {
+  float: right;
+}
 
-@media screen and (min-width: $sm)
-  #recent-posts
-  #tag
-  #archive
-  #post
-  #about
-    width 55%
+.clear {
+  clear: both;
+}
 
-@media screen and (min-width: $sm) and (max-width: $bg)
-  #recent-posts
-  #tag
-  #archive
-  #post
-  #about
-    width 70%
+@media screen and (min-width: $sm) {
+  #recent-posts, #tag, #archive, #post, #about {
+    width: 55%;
+  }
+}
 
-@media screen and (max-width: $bg)
-  #recent-posts
-    width: 100%
-  #tag
-  #archive
-  #about
-    width 90%
-  #post
-    width: 95%
+@media screen and (min-width: $sm) and (max-width: $bg) {
+  #recent-posts, #tag, #archive, #post, #about {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: $bg) {
+  #recent-posts {
+    width: 100%;
+  }
+
+  #tag, #archive, #about {
+    width: 90%;
+  }
+
+  #post {
+    width: 95%;
+  }
+}

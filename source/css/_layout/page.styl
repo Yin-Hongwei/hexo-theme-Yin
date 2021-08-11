@@ -1,172 +1,140 @@
-//Home
-#content-outer
-  width: 100%
-  padding-top 1rem
-  margin 4rem 0 2rem 0
-  position: relative
-  height calc(100vh- 100px)
+// Home
+#content-outer {
+  width: 100%;
+  padding-top: 1rem;
+  margin: 3rem 0 1rem 0;
+  position: relative;
 
-    ul, ol, dl
-      margin-top: 0.4rem
-      padding: 0 0 0 0.8rem
+  height calc(100vh- 100px) {
+    ul, ol, dl {
+      margin-top: 0.4rem;
+      padding: 0 0 0 0.8rem;
+    }
+  }
+}
 
-  #recent-posts
-    margin: auto
-    padding: 1rem 1rem -0 1rem
+#sidebar {
+  width: 25vw;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-   .home-title
-     color: $color-light-black
-     font-size 1.6rem
-     position relative
-     top: -1rem
+  .author-img {
+    width: 15vw;
+    height: 15vw;
+    overflow: hidden;
+    border-radius: 10px;
 
-  .recent-post-item
-      background-color: $color-white;
-      margin-bottom: 3rem
-      padding: 10px 20px
-      border-radius: 5px
-      -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    img {
+      width: 100%;
+    }
+  }
 
-      .post-title
-        a
-          font-size: 1.5rem
-          color: $color-light-black
-          font-weight bold
-          -webkit-transition: all 0.2s ease-in-out
-          -moz-transition: all 0.2s ease-in-out
-          -o-transition: all 0.2s ease-in-out
-          -ms-transition: all 0.2s ease-in-out
+  .author-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-      .post-time
-      .recent-post-tags
-      .post-tag
-        color $color-dark-grey
-        margin-right: 10px
+    .author {
+      font-size: 20px;
+    }
+  }
+}
 
-      blockquote
-        margin: 5px 0
-        border-left: .25em solid $color-grey
-        color: $color-blockquote-default
-        padding: 0 1em
+#about, #archive {
+  margin: auto;
+  padding-bottom: 1rem;
+  color: $color-black-dark;
+}
 
-      .recent-post-content
-        a
-          color: $color-link
-          &:hover
-            color: $color-light-blue
-        img,video,audio
-          width 100%
-      .read-more
-        color: $color-white
-        font-size: 15px
-        background-color: $color-black
-        -webkit-transition: background-color .2s ease-in-out
-        -moz-transition: background-color .2s ease-in-out
-        -o-transition: background-color .2s ease-in-out
-        -ms-transition: background-color .2s ease-in-out
-        border-radius: 3px
-        width: 5rem
-        margin: 10px auto
-        text-align center
-        padding: 0 17px
+// About
+#about {
+  min-height: 20rem;
 
-        &:hover
-          background-color: $color-light-black
+  .about-title {
+    font-size: 2rem;
+  }
 
-        a
-          color: $color-white
+  .article-container {
+    p:nth-of-type(1) {
+      width: 100%;
+      margin: auto;
+      position: relative;
 
+      img {
+        width: 20vw;
+      }
+    }
+  }
+}
 
-#about
-#tag
-#archive
-  margin auto
-  padding-bottom: 2rem
-  color: $color-light-black
+// Archive
+#archive {
+  margin-left: 25vw;
 
+  .article-title {
+    font-size: 2rem;
+  }
 
-//About
-#about
-  min-height: 20rem
-  .about-title
-    font-size 2rem
+  .article-sort {
+    &-item {
+      position: relative;
 
-  .article-container
-    p:nth-of-type(1)
-      width 100%
-      margin auto
-      position: relative
+      &.year {
+        margin-left: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
 
-      img
-        width 100px
+        &:hover {
+          &:before {
+            border-color: $color-black-dark;
+          }
+        }
 
-#site-social-icons
-  margin: 0 auto
-  width: 15rem
-  text-align: center
+        &:before {
+          border: none;
+        }
+      }
 
-  .social-icon
-    margin: 0 0.5rem
-    color: $color-light-black
-    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15)
-    font-size: 1.4rem
-    cursor: pointer
+      &__time {
+        position: absolute;
+        color: $color-black-light;
+      }
 
-//Archive
-#article
-.article
-  &-title
-    font-size 2rem
+      &__title {
+        display: block;
+        margin-left: 5rem;
+        cursor: pointer;
+        color: $color-black-light;
+      }
+    }
 
-  &-item
-    position: relative
-    margin-left 1.5rem
+    a {
+      &:hover, &:before {
+        color: $color-black-dark;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+}
 
-    &.year
-      margin-left 0
-      font-size: 1.5rem
-      font-weight bold
+#site-social-icons {
+  .social-icon {
+    margin: 0 0.5rem;
+    color: $color-black-dark;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
 
-    &__time
-      position: absolute
+@media screen and (max-width: $sm) {
+  #sidebar {
+    width: 100vw;
+  }
 
-    &__title
-      display: block
-      margin-left: 5rem
-      text-decoration: underline
-      cursor: pointer
-
-
-
-//Tag
-#tag
-  .tag-title
-    font-size 2rem
-
-  ul,li
-    list-style:none
-
-  .tag-list
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
-
-    .tag-list-item
-      position relative
-      padding: 4px 10px
-      border: 1px dashed $color-border
-      margin: 10px 15px
-      cursor: pointer
-
-      &:hover
-        background-color: $color-white
-
-      .tag-list-count
-        position absolute
-        top: 0
-        right: 6px
-    a
-      display: block
-      margin: 0 0.4rem
+  #archive {
+    margin-left: 0;
+  }
+}

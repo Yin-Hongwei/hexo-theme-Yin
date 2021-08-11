@@ -1,36 +1,42 @@
-$highlight-background-color = #383838
-$highlight-color = #BEBEBE
-$highlight-comment-text-color = #9999
+$highlight-background-color = #383838;
+$highlight-color = #BEBEBE;
+$highlight-comment-text-color = #9999;
 
+.article-entry {
+  padding: 20px 0;
 
-.article-entry
-  padding 20px 0
-  .highlight
-    background-color: $highlight-background-color
-    color: $highlight-color
-    border-radius 3px
-    margin 10px 0
-    overflow: auto
-    line-height: $font-size * $line-height
-    font-family: $font-mono
+  .highlight {
+    background-color: $highlight-background-color;
+    color: $highlight-color;
+    border-radius: 3px;
+    margin: 10px 0;
+    overflow: auto;
+    line-height: $font-size * $line-height;
+    font-family: $font-mono;
 
-    .comment
-      color: #9999
+    .comment {
+      color: #9999;
       font-style: italic;
+    }
 
-    table
-      width: auto
-      border: none
+    table {
+      width: auto;
+      border: none;
 
-      td
-        padding: 0
-        border: none !important
+      td {
+        padding: 0;
+        border: none !important;
+      }
+    }
 
-    .gutter
-      display none
+    .gutter {
+      display: none;
+    }
 
-    pre
-      margin: 0
-      padding: 0
-      font-size: 14px
-
+    pre {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+  }
+}

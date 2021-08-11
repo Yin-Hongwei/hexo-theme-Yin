@@ -3,9 +3,8 @@ language: en
 
 # main menu navigation
 menu:
-  关于: /about
-  存档: /archives
-  标签: /tags
+  About Me: /about
+  # 标签: /tags
 
 # cdn
 cdn:
@@ -32,3 +31,20 @@ social:
   envelope-o: yinhongwei96@126.com
   github: https://github.com/Yin-Hongwei
   weibo: https://weibo.com/u/6746100432?topnav=1&wvr=6&topsug=1
+
+author: Yin-Hongwei
+
+# reward
+reward:
+  enable: false
+  alipay: /img/weixin.jpg
+
+# gitalk
+gitalk:
+  enable: false
+  id: ''
+  owner: ''
+  admin: ''
+  repo: ''
+  client_id: ''
+  client_secret: ''

@@ -1,81 +1,99 @@
-#navbar
-  background-color: $theme-header-color
-  position: fixed
-  width: 100%
-  padding: 10px 20%
-  top: 0
-  z-index: 100
-  font-size: 20px
+#navbar {
+  background-color: $theme-header-color;
+  position: fixed;
+  width: 100%;
+  padding: 10px 20%;
+  top: 0;
+  z-index: 100;
+  font-size: 20px;
+  text-align: center;
 
-  .nav-left
-    display flex
-    align-content center
-    float: left
+  .nav-left {
+    display: flex;
+    align-content: center;
+    float: left;
+  }
 
-    .tou-img
-      display inline-block
-      width 40px
-      height 40px
-      margin-right 10px
+  .title {
+    color: $theme-header-text-color;
+  }
 
-      img
-        width 40px
+  .nav-right {
+    float: right;
+  }
 
-  .nav-right
-    float: right
+  .toggle-menu {
+    display: none;
+    padding-top: 0.5rem;
+    color: $theme-header-text-color;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 
-  .toggle-menu
-    display: none
-    padding-top: 0.5rem
-    color: $theme-header-text-color
-    cursor: pointer
-    transition: all 0.2s ease-in-out
+    &:hover {
+      color: $color-white;
+    }
+  }
 
-    &:hover
-      color: $color-white
+  a {
+    color: $theme-header-text-color;
 
-  a
-    color: $theme-header-text-color
+    &:hover {
+      color: $color-white;
+    }
+  }
 
-    &:hover
-      color: $color-white
+  #site-name {
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-  #site-name
-    font-weight: bold
-    cursor: pointer
+  .site-page {
+    margin: 0 1rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+}
 
-  .site-page
-    margin: 0 1rem
-    font-size: 0.8rem
-    cursor: pointer
+@media screen and (max-width: $sm) {
+  #navbar {
+    padding: 10px 0.8rem;
 
-@media screen and (max-width: $sm)
-  #navbar
-    padding: 10px 0.8rem
+    .toggle-menu {
+      display: block;
+    }
 
-    .toggle-menu
-      display: block
+    .title {
+      display: none;
+    }
 
-    .menus
-      position: absolute
-      top: 3rem
-      right: 0.8rem
-      display: none
-      width: 8rem
-      background-color: alpha($color-white, 0.9)
+    .menus {
+      position: absolute;
+      top: 3rem;
+      right: 0.8rem;
+      display: none;
+      width: 8rem;
+      background-color: alpha($color-white, 0.9);
 
-      a
-        display: block
-        margin-left: 0
-        padding-top: 0.3rem
-        padding-bottom: 0.3rem
-        padding-left: 0.6rem
-        color: $color-black
-        text-shadow: none
-        font-size: 0.8rem
+      a {
+        display: block;
+        margin-left: 0;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+        padding-left: 0.6rem;
+        color: $color-black-light;
+        text-shadow: none;
+        font-size: 0.8rem;
 
-        &:hover
-          color: $color-light-black
-@media screen and (min-width: $sm) and (max-width: $bg)
-  #navbar
-    padding: 10px 3%
+        &:hover {
+          color: $color-black-dark;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $sm) and (max-width: $bg) {
+  #navbar {
+    padding: 10px 3%;
+  }
+}

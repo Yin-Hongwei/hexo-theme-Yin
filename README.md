@@ -6,42 +6,62 @@
   <a href=""><img alt="license" src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat"></a>
 </p>
 
-## Screenshots
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh6zuq38qwj31c00u0k21.jpg)
+## 主题截图
 
-
-
-
-## Online demo
-
-Watch online demo：[Hongwei Blog](https://yin-hongwei.github.io/)
+![](https://tva1.sinaimg.cn/large/008i3skNgy1gtcp27qojhj61c00u076d02.jpg)
 
 
 
-## Install
 
-1. Execute the following commands in **Hexo directory**.
+## 在线预览
 
-```
+在线观看示例：[Hongwei Blog](https://yin-hongwei.github.io/)
+
+
+
+## 安装
+
+1. 在 **Hexo/themes** 目录下执行下面命令。
+
+```bash
 git clone -b master https://github.com/Yin-Hongwei/hexo-theme-Yin.git
 ```
 
-1. Change the `theme` property to `hexo-theme-Yin` of `_config.yml` in **Hexo directory**.
+2. 将 **Hexo/_config.yml** 文件中的主题属性改为 `hexo-theme-Yin`。
 
-```
+```bash
 theme: hexo-theme-Yin
 ```
 
-1. If you don't have `jade renderer` and `sass renderer`, follow this:
+3. 如果你没有下载 `hexo-renderer-pug` 和 `hexo-renderer-stylus`，请执行下面命令安装。
 
+```bash
+npm install hexo-renderer-pug hexo-renderer-stylus --save
 ```
-npm install hexo-renderer-jade hexo-renderer-sass --save
+
+
+
+## 配置
+
+1. 如果你想为项目增加评论功能，可以修改 **hexo-theme-Yin/_config.yml** 文件中注释的 **gitalk** 内容。
+
+2. 如果你想为项目增加赞赏功能，可以在 **Hexo/source/** 目录下新建 img 目录，并放入赞赏码图片，修改 **hexo-theme-Yin/_config.yml** 文件中 **reward** 的内容。
+
+3. 如果你想为项目增加关于功能，可以在 **Hexo/source/** 目录下新建 about 目录，并在里面新建 index.md 文件，开头写入
+```
+---
+title: 关于我
+
+type: about
+
+---
 ```
 
 
 
-## License
+
+## 许可证
 
 [MIT](http://opensource.org/licenses/MIT)
 
