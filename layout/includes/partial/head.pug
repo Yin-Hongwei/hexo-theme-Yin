@@ -22,7 +22,7 @@ meta(name="keywords" content=pageKeywords)
 meta(name="author" content=pageAuthor)
 meta(name="copyright" content=pageCopyright)
 title= pageTitle
-link(rel="icon", href=url_for('/favicon.ico'))
+link(rel="icon", href=url_for(theme.avatar_icon))
 if theme.stylesheets !== undefined && theme.stylesheets.length > 0
   each url in theme.stylesheets
     link(rel='stylesheet', href=url)

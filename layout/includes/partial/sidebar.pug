@@ -1,0 +1,31 @@
+- const showToc = is_post() && theme.toc.enable
+-
+  let tocNumber
+  if (page.toc_number !== undefined) tocNumber = page.toc_number
+  else if (theme.toc.number !== undefined) tocNumber = theme.toc.number
+  else tocNumber = false
+  let currentPageType = is_post()
+    ? 'post'
+    : is_home()
+    ? 'index'
+    : 'other'
+  let display = 'false'
+  const sidebar_display = theme.sidebar.display || 'post'
+  if (
+    currentPageType === sidebar_display ||
+    (sidebar_display === 'all') ||
+    (currentPageType !== 'index' && (sidebar_display === 'index-none')) ||
+    (currentPageType !== 'post' && (sidebar_display === 'post-none'))
+  ) {
+    display = 'true'
+  }
+  if (theme.sidebar_display === 'hidden') {
+    display = 'false'
+  }
+-
+i.fa.fa-arrow-right#toggle-sidebar(aria-hidden="true")
+#sidebar(data-display=display)
+  if(showToc)
+    .sidebar-toc
+      div.sidebar-toc__title= theme.sidebar.catalog
+      div.sidebar-toc__content!=toc(page.content, {list_number: tocNumber})

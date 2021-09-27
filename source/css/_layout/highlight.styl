@@ -1,42 +1,255 @@
-$highlight-background-color = #383838;
-$highlight-color = #BEBEBE;
-$highlight-comment-text-color = #9999;
+$highlight-background = #2d2d2d;
+$highlight-current-line = #efefef;
+$highlight-selection = #80CBC420;
+$highlight-foreground = #EEFFFF;
+// $highlight-foreground = #bebebe;
+$highlight-comment = #546E7A;
+$highlight-red = #FF5370;
+$highlight-orange = #F78C6C;
+$highlight-yellow = #FFCB6B;
+$highlight-yellow = #f8c555;
+$highlight-green = #C3E88D;
+$highlight-aqua = #89DDFF;
+$highlight-blue = #82AAFF;
+$highlight-purple = #C792EA;
+$highlight-gutter = {
+  color: #37474F,
+  bg-color: $highlight-background
+};
+$code-font-size = $font-size
 
-.article-entry {
-  padding: 20px 0;
+$code-block {
+  overflow: auto;
+  margin: 1rem 0;
+  padding: 0;
+  background: $highlight-background;
+  color: $highlight-foreground;
+  font-size: $code-font-size;
+  line-height: $line-height-code-block;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0 0.6rem;
+  border-left: 0.2rem solid $blockquote-padding-color;
+  color: $blockquote-color;
+}
+
+.article-container {
+  pre, code {
+    font-family: $code-font !important;
+  }
+
+  code {
+    padding: 0.1rem 0.2rem;
+    background: $code-background;
+    color: $code-foreground;
+    word-wrap: break-word;
+    font-size: $code-font-size;
+  }
+
+  pre {
+    @extend $code-block;
+
+    code {
+      padding: 0;
+      background: none;
+      color: $highlight-foreground;
+      text-shadow: none;
+    }
+  }
 
   .highlight {
-    background-color: $highlight-background-color;
-    color: $highlight-color;
-    border-radius: 3px;
-    margin: 10px 0;
-    overflow: auto;
-    line-height: $font-size * $line-height;
-    font-family: $font-mono;
-
-    .comment {
-      color: #9999;
-      font-style: italic;
-    }
-
-    table {
-      width: auto;
-      border: none;
-
-      td {
-        padding: 0;
-        border: none !important;
-      }
-    }
-
-    .gutter {
-      display: none;
-    }
+    @extend $code-block;
+    position: relative;
+    border-radius: 5px;
 
     pre {
       margin: 0;
+      padding: 8px 0;
+      border: none;
+    }
+
+    .line {
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
+    }
+
+    table {
+      position: relative;
+      margin: 0;
+      width: auto;
+      border: none;
+    }
+
+    td {
       padding: 0;
-      font-size: 14px;
+      border: none;
+      border: none !important;
+    }
+
+    figcaption {
+      clearfix();
+      position: absolute;
+      z-index: 1;
+      margin-bottom: 1em;
+      padding: 0.2em 0 0.2em 0.7rem;
+      width: 100%;
+      height: 1.4em;
+      color: $highlight-foreground;
+      font-size: 1em;
+      line-height: 1em;
+
+      span {
+        float: left;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      a {
+        float: right;
+        padding-right: 10px;
+        color: $highlight-foreground;
+
+        &:hover {
+          border-bottom-color: $highlight-foreground;
+        }
+      }
+
+      &+table {
+        margin-top: 1em;
+
+        &:before {
+          margin-top: -2.1rem;
+        }
+
+        &:after {
+          top: -2.1rem;
+          background-color: red;
+        }
+      }
+    }
+
+    .code pre {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+      width: 100%;
+      background-color: $highlight-background;
+    }
+
+    .line {
+      height: 1rem;
+    }
+  }
+
+  .gutter {
+    display: none;
+  }
+
+  .gist table {
+    width: auto;
+
+    td {
+      border: none;
+    }
+  }
+
+  pre .deletion {
+    background: $highlight-deletion;
+  }
+
+  pre .addition {
+    background: $highlight-addition;
+  }
+
+  pre .meta {
+    color: $highlight-purple;
+  }
+
+  pre {
+    .comment {
+      color: $highlight-comment;
+
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
+    }
+
+    .variable, .attribute, .regexp, .ruby .constant, .xml .tag .title, .xml .pi, .xml .doctype, .html .doctype, .css .id, .tag .name, .css .class, .css .pseudo {
+      color: $highlight-red;
+
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
+    }
+
+    .tag {
+      color: $highlight-aqua;
+
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
+    }
+
+    .number, .preprocessor, .literal, .params, .constant, .command {
+      color: $highlight-orange;
+
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
+    }
+
+    .built_in {
+      color: $highlight-yellow;
+
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
+    }
+
+    .ruby .class .title, .css .rules .attribute, .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata, .special, .number, .formula {
+      color: $highlight-green;
+
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
+    }
+
+    .keyword, .title, .css .hexcolor {
+      color: $highlight-aqua;
+
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
+    }
+
+    .function, .python .decorator, .python .title, .ruby .function .title, .ruby .title .keyword, .perl .sub, .javascript .title, .coffeescript .title {
+      color: $highlight-blue;
+
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
+    }
+
+    .tag .attr, .javascript .function {
+      color: $highlight-purple;
+
+      &::selection {
+        background: $highlight-selection;
+        color: $highlight-foreground;
+      }
     }
   }
 }

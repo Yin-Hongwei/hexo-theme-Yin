@@ -13,7 +13,7 @@
   }
 }
 
-#sidebar {
+#sidebar-auther {
   width: 25vw;
   float: left;
   display: flex;
@@ -37,7 +37,10 @@
     flex-direction: column;
     align-items: center;
 
-    .author {
+    .author {}
+
+    .description {
+    font-weight: bold;
       font-size: 20px;
     }
   }
@@ -86,6 +89,7 @@
         margin-left: 0;
         font-size: 1.2rem;
         font-weight: bold;
+        color: $theme-color;
 
         &:hover {
           &:before {
@@ -126,15 +130,5 @@
     color: $color-black-dark;
     font-size: 1rem;
     cursor: pointer;
-  }
-}
-
-@media screen and (max-width: $sm) {
-  #sidebar {
-    width: 100vw;
-  }
-
-  #archive {
-    margin-left: 0;
   }
 }

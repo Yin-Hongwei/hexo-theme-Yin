@@ -1,8 +1,9 @@
 extends includes/layout.pug
 
 block content
-  article#post.article-entry
-    != page.content
+  article#post
+    include ./includes/partial/sidebar.pug
+    #post-content.article-container!= page.content
     if (theme.reward.enable)
         .qr-code
         img.qrcode-img(src=(theme.reward.alipay))

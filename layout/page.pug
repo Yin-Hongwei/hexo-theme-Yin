@@ -4,5 +4,5 @@ block content
   if page.type === 'about'
     article#about
       h1.about-title= page.title
-      .article-container!= page.content
+      #post-content.article-container!= page.content
     include includes/partial/pagination.pug

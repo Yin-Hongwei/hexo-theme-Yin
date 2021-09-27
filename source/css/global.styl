@@ -22,7 +22,35 @@ html, body {
 }
 
 #content-outer {
-  flex: 1;
+  flex: 1 auto;
+}
+
+#content-inner {
+  .img-alt {
+    text-decoration: none;
+  }
+}
+
+#toggle-sidebar {
+  position: fixed;
+  bottom: $sidebar-icon-top;
+  left: $sidebar-icon-left;
+  z-index: 100;
+  font-size: $sidebar-icon-size;
+  cursor: pointer;
+}
+.fa.fa-arrow-right.on {
+  color: rgb(31, 45, 61) !important;
+  }
+
+#go-up {
+  position: fixed;
+  right: $go-up-right;
+  bottom: $go-up-bottom;
+  z-index: 100;
+  font-size: $sidebar-icon-size;
+  opacity: 0;
+  cursor: pointer;
 }
 
 a {
@@ -90,5 +118,13 @@ table {
 
   #post {
     width: 95%;
+  }
+
+  i#toggle-sidebar, #sidebar {
+    display: none;
+  }
+
+  body {
+    padding-left: 0 !important;
   }
 }

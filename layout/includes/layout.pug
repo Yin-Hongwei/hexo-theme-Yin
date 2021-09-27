@@ -1,11 +1,10 @@
 doctype html
 html(lang=config.language)
   head
-    include partial/head.pug
+    include ./partial/head.pug
 
   body
-    include partial/header.pug
-
+    include ./partial/header.pug
     article#content-outer
       section#content-inner
         if body
@@ -14,10 +13,10 @@ html(lang=config.language)
           block content
 
     include partial/footer.pug
+    i.fa.fa-arrow-up#go-up(aria-hidden="true")
   each item in theme.cdn.js
     if item !== undefined
       script(src=url_for(item))
   if theme.scripts !== undefined && theme.scripts.length > 0
-    //- scripts list from config.yml
     each url in theme.scripts
       script(src=url defer)

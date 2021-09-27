@@ -2,12 +2,14 @@ if body
   div!= body
 else
   include ./mixins/article-sort.pug
-  aside#sidebar
+  aside#sidebar-auther 
     div.author-img
-      img(src="/img/tou.jpg")
+      img(src=theme.avatar)
     div.author-info
       if(theme.author)
-        h1.author= theme.author
+        h1.author= theme.author 
+      if(theme.description)
+        .description= theme.description 
       if(theme.social)
         #site-social-icons
           each url, icon in theme.social

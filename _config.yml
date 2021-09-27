@@ -12,7 +12,7 @@ cdn:
     fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
   js:
     jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
-    anime: https://cdn.bootcss.com/animejs/2.2.0/anime.min.js
+    anime: https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js
     velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
     velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js
     fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
@@ -20,11 +20,16 @@ cdn:
 
 # stylesheets loaded in the <head>
 stylesheets:
-  - /css/style.css
+  - /css/index.css
 
 # scripts loaded in the end of the body
 scripts:
-- /js/main.js
+- /js/utils.js
+- /js/transition.js
+- /js/fancybox.js
+- /js/menu.js
+- /js/sidebar.js
+- /js/scroll.js
 
 # SNS
 social:
@@ -32,19 +37,32 @@ social:
   github: https://github.com/Yin-Hongwei
   weibo: https://weibo.com/u/6746100432?topnav=1&wvr=6&topsug=1
 
-author: Yin-Hongwei
+# Site
+avatar: /img/avatar.jpg
+avatar_icon: /img/favicon.ico
 
-# reward
-reward:
-  enable: false
-  alipay: /img/weixin.jpg
+# sidebar
+sidebar:
+  catalog: 大纲
+  display: index # all/index/post/index-none/post-none/hidden
 
-# gitalk
-gitalk:
-  enable: false
-  id: ''
-  owner: ''
-  admin: ''
-  repo: ''
-  client_id: ''
-  client_secret: ''
+toc:
+  enable: true
+
+footer:
+  startTime: 2018
+
+# reward:
+#   enable: false
+#   alipay: /img/weixin.jpg
+
+# gitalk 
+# gitalk:
+#   enable: false
+#   id: ''
+#   owner: ''
+#   admin: ''
+#   repo: ''
+#   client_id: ''
+#   client_secret: ''
+
