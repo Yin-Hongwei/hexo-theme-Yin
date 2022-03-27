@@ -9,7 +9,7 @@
 
 ## 主题截图
 
-![](https://tva1.sinaimg.cn/large/008i3skNgy1gtcp27qojhj61c00u076d02.jpg)
+![](https://tva1.sinaimg.cn/large/e6c9d24ely1h0okkbyi4ej21c00u0mz5.jpg)
 
 
 
@@ -25,7 +25,7 @@
 1. 在 **Hexo/themes** 目录下执行下面命令。
 
 ```bash
-git clone -b master https://github.com/Yin-Hongwei/hexo-theme-Yin.git
+git clone git@github.com:Yin-Hongwei/hexo-theme-Yin.git
 ```
 
 2. 将 **Hexo/_config.yml** 文件中的主题属性改为 `hexo-theme-Yin`。

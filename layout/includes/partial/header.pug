@@ -1,6 +1,8 @@
 header#page-header
   nav#navbar
     span.nav-left
+      div.tou-img
+        img(src=theme.avatar)
       a#site-name(href=url_for('/')) #[=config.title]
     i.fa.fa-bars.toggle-menu.nav-right(aria-hidden="true")
 

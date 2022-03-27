@@ -1,8 +1,18 @@
 extends includes/layout.pug
 
 block content
-  if page.type === 'about'
+  if page.type === 'tags'
+    article#tag
+      h1.tag-title= '标签'
+      .tag-cloud-tags!= list_tags()
+  else if page.type === 'about'
     article#about
       h1.about-title= page.title
+      hr
+      if(theme.social)
+        #site-social-icons
+          each url, icon in theme.social
+           a.social-icon(href=url target="_blank")
+             i(class="fa-" + icon + " fa" )
       #post-content.article-container!= page.content
     include includes/partial/pagination.pug

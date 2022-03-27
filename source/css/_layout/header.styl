@@ -1,26 +1,36 @@
 #navbar {
-  background-color: $theme-header-color;
-  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
-  padding: 10px 20%;
+  height: $header-height;
+  padding: 10px 5%;
+  position: fixed;
   top: 0;
   z-index: 100;
   font-size: 20px;
-  text-align: center;
-  height: $header-height;
+  background-color: $theme-header-color;
 
   .nav-left {
     display: flex;
-    align-content: center;
-    float: left;
+    align-items: center;
+
+    .tou-img {
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 2px solid $color-white;
+
+      img {
+        width: 100%;
+      }
+    }
   }
 
   .title {
     color: $theme-header-text-color;
-  }
-
-  .nav-right {
-    float: right;
   }
 
   .toggle-menu {
@@ -31,7 +41,7 @@
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      color: $theme-header-text-color-active ;
+      color: $theme-header-text-color-active;
     }
   }
 
@@ -39,7 +49,7 @@
     color: $theme-header-text-color;
 
     &:hover {
-      color: $theme-header-text-color-active ;
+      color: $theme-header-text-color-active;
     }
   }
 

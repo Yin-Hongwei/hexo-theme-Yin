@@ -11,7 +11,7 @@ $(function () {
       isOpen ? $(this).removeClass('on') : $(this).addClass('on')
       if (isOpen) {
         $('#page-header').removeClass('open-sidebar')
-        $('#content-outer').velocity('stop').velocity({
+        $('body').velocity('stop').velocity({
           paddingLeft: '0px'
         }, {
           duration: 200
@@ -29,8 +29,8 @@ $(function () {
         })
       } else {
         $('#page-header').addClass('open-sidebar')
-        $('#content-outer').velocity('stop').velocity({
-          paddingLeft: '100px'
+        $('body').velocity('stop').velocity({
+          paddingLeft: '300px'
         }, {
           duration: 200
         })

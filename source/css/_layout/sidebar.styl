@@ -5,40 +5,19 @@
     left: -300px;
     z-index: 10;
     overflow-y: auto;
-    padding: $header-height 0.5rem;
+    padding: 5px;
     height: 100%;
+    background-color: $color-white-dark;
 
-    .author-info {
-        padding: 1rem 0;
+    .sidebar-toc {
+        a {
+            color: $color-black-light;
 
-        &.hide {
-            display: none;
-        }
-
-        &__avatar {
-            margin: 0 auto;
-            width: w = 8rem;
-            height: w;
-            border-radius: 5px;
-            overflow: hidden;
-
-            img {
-                width: 100%;
+            &:hover {
+                color: $color-blue-dark;
             }
         }
 
-        &__name {
-            font-size: 1rem;
-            font-weight: bold;
-            text-align: center;
-        }
-    }
-
-    #site-social-icons {
-        text-align: center;
-    }
-
-    .sidebar-toc {
         ol, li {
             list-style: none;
         }
@@ -51,6 +30,7 @@
         &__title {
             padding-right: 0.5rem;
             text-align: center;
+            font-weight: 500;
             font-size: unit(0.9 * $rem, 'px');
         }
 

@@ -2,18 +2,5 @@ if body
   div!= body
 else
   include ./mixins/article-sort.pug
-  aside#sidebar-auther 
-    div.author-img
-      img(src=theme.avatar)
-    div.author-info
-      if(theme.author)
-        h1.author= theme.author 
-      if(theme.description)
-        .description= theme.description 
-      if(theme.social)
-        #site-social-icons
-          each url, icon in theme.social
-            a.social-icon(href=url target="_blank")
-              i(class="fa-" + icon + " fa" )
   article#archive
     +articleSort(page.posts)
