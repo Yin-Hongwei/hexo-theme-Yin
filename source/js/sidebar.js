@@ -30,7 +30,7 @@ $(function () {
       } else {
         $('#page-header').addClass('open-sidebar')
         $('body').velocity('stop').velocity({
-          paddingLeft: '300px'
+          paddingLeft: '250px'
         }, {
           duration: 200
         })

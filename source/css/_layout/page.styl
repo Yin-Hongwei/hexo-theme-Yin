@@ -5,17 +5,101 @@
   margin-bottom: 1rem;
   position: relative;
 
-  height calc(100vh- 100px) {
+  #content-inner {
+    padding-bottom: 3rem;
+
     ul, ol, dl {
       margin-top: 0.4rem;
       padding: 0 0 0 0.8rem;
+    }
+  }
+
+  #recent-posts {
+    margin: auto;
+    padding: 2rem;
+
+    .recent-post-item {
+      background-color: $color-white;
+      margin-bottom: 3rem;
+      padding: 10px 20px 10px 20px;
+      border-radius: 10px;
+      -webkit-box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        -webkit-box-shadow: 1px 1px 7px 7px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 1px 1px 7px 7px rgba(0, 0, 0, 0.2);
+        box-shadow: 1px 1px 7px 7px rgba(0, 0, 0, 0.2);
+      }
+
+      .post-title {
+        a {
+          font-size: 1.5rem;
+          -webkit-transition: all 0.1s ease-in-out;
+          -moz-transition: all 0.1s ease-in-out;
+          -o-transition: all 0.1s ease-in-out;
+          -ms-transition: all 0.1s ease-in-out;
+
+          &:hover {
+            color: $color-black-dark;
+          }
+        }
+      }
+
+      .post-time, .recent-post-tags, .post-tag {
+        color: $color-grey-dark;
+        margin-right: 10px;
+      }
+
+      blockquote {
+        margin: 5px 0;
+        border-left: 0.25em solid $color-grey;
+        color: #6a737d;
+        padding: 0 1em;
+      }
+
+      .recent-post-content {
+        img, video, audio {
+          width: 100%;
+        }
+      }
+
+      .read-more {
+        display: flex;
+        justify-content: flex-end;
+
+        .read-more-btn {
+          font-size: 15px;
+          text-align: center;
+          background-color: $color-black-light;
+          -webkit-transition: background-color 0.2s ease-in-out;
+          -moz-transition: background-color 0.2s ease-in-out;
+          -o-transition: background-color 0.2s ease-in-out;
+          -ms-transition: background-color 0.2s ease-in-out;
+          border-radius: 16px;
+          line-height: 2;
+          width: 5rem;
+          margin: 10px 0;
+          padding: 0 17px;
+
+          &:hover {
+            cursor: pointer;
+            background-color: $color-black-dark;
+          }
+        }
+
+        a {
+          color: $color-white;
+        }
+      }
     }
   }
 }
 
 #about, #archive {
   margin: auto;
-  padding: 0 10px 1rem 10px;
+  padding: 10px 10px 10px 10px;
   color: $color-black-dark;
 }
 

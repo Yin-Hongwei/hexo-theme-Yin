@@ -9,7 +9,7 @@
 
 ## 主题截图
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h0okkbyi4ej21c00u0mz5.jpg)
+![](https://tva1.sinaimg.cn/large/e6c9d24ely1h6hwptikgmj21c00u0wha.jpg)
 
 
 

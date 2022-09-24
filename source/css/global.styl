@@ -33,15 +33,21 @@ html, body {
 
 #toggle-sidebar {
   position: fixed;
-  bottom: $sidebar-icon-top;
   left: $sidebar-icon-left;
-  z-index: 100;
+  top: $sidebar-icon-top;
   font-size: $sidebar-icon-size;
+  z-index: 100;
   cursor: pointer;
+  padding: 15px 4px;
+  // border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: $color-grey;
+  color: $color-black !important;
 }
 
-.fa.fa-arrow-right.on {
-  color: rgb(31, 45, 61) !important;
+.fa.fa-caret-right.on {
+  margin-left: $sidebar-margin-left;
 }
 
 #go-up {

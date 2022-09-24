@@ -3,7 +3,8 @@ language: en
 
 # main menu navigation
 menu:
-  About Me: /about
+  关于我: /about
+  存档: /archives
   # 标签: /tags
 
 # cdn
