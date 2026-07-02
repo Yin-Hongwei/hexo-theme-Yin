@@ -52,7 +52,6 @@ $base-style
   @extend $base-style
   clearfix()
   margin auto
-  //border-bottom: 1px solid $color-border
 
   h1, h2, h3, h4, h5, h6
     font-weight: bold
@@ -85,12 +84,10 @@ $base-style
     height: auto
     display: block
     margin: 5px auto
-    padding: $img-border-padding
-    border: 1px solid $color-img-border
     transition: all 0.2s
 
     &:hover
-      box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5)
+      box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6)
 
   iframe
     border: none
@@ -133,3 +130,29 @@ $base-style
       height: 100%
       margin-top: 0
 
+.qrcode-img
+  width 10rem
+.qrcode-desc
+  text-align center
+  font-weight bold
+
+.post-tag-list
+  font-weight bold
+  padding 0.5rem 0
+  border-bottom 1px solid $color-border
+
+.post-tags
+  display: inline-block
+  margin 0.4rem
+  padding: 0 0.5rem
+  border: 1px solid $color-black
+  border-radius: 0.3rem
+  background-color: $color-white
+  font-size: 14px
+  cursor: pointer
+  transition: all 0.2s ease-in-out
+  color: $color-black!important
+
+  &:hover
+    background: $color-light-black
+    color: $color-white!important
