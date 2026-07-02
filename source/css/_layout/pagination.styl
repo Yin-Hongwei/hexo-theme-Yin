@@ -7,11 +7,12 @@
     .page-number
     .extend
       display: inline-block
-      background-color: white
+      background-color: $color-white
       -webkit-transition: all .2s ease-in-out
       -moz-transition: all .2s ease-in-out
       -o-transition: all .2s ease-in-out
       -ms-transition: all .2s ease-in-out
+      border: 1px solid $color-border
       color: black
       height: 1.6rem
       width: 1.6rem
@@ -20,14 +21,14 @@
       cursor: pointer
 
       &:hover
-        background-color: #2aa3ef
-        color: white
+        background-color: $color-light-blue
+        color: $color-white
 
     .extend
       width: 3rem
       padding: 0 5px
 
     .current
-      background-color: #95d1f7
-      color: $white
+      background-color: $color-blue
+      color: $color-white
       cursor: default

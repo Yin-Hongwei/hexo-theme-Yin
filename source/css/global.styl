@@ -8,7 +8,7 @@ body
   display: flex
   flex-direction: column
   min-height: 100%
-  background-color: #fff
+  background-color $theme-body-color
   color: $font-black
   font-size: $font-size
   font-family: $font-family
@@ -63,38 +63,26 @@ table
 
 @media screen and (min-width: $sm)
   #recent-posts
-    width: 60%
   #tag
   #archive
-    width 60%
-  #page
-    .article-container
-      p:nth-of-type(1)
-        width 11rem
-        right: 2rem
+  #post
+  #about
+    width 50%
 
 @media screen and (min-width: $sm) and (max-width: $bg)
   #recent-posts
-    width: 70%
   #tag
   #archive
+  #post
+  #about
     width 70%
-  #page
-    .article-container
-      p:nth-of-type(1)
-        width 10rem
-        bottom 1rem
 
 @media screen and (max-width: $bg)
   #recent-posts
     width: 100%
   #tag
   #archive
+  #about
     width 90%
-  #page
-    .article-container
-      p:nth-of-type(1)
-        width: w = 9rem
-        bottom: 1rem
-        left: 50%
-        margin-left: -(w / 2)
+  #post
+    width: 95%

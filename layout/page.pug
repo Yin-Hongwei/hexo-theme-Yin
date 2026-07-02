@@ -4,9 +4,11 @@ block content
   if page.type === 'tags'
     article#tag
       h1.tag-title= '标签'
+      hr
       .tag-cloud-tags!= list_tags()
   else
-    article#page
-      h1= page.title
+    article#about
+      h1.about-title= page.title
+      hr
       .article-container!= page.content
     include includes/partial/pagination.pug

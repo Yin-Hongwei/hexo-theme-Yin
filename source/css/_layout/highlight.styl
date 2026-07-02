@@ -1,14 +1,21 @@
+$highlight-background-color = #f7fafe
+$highlight-comment-text-color = #9999
 
 .article-entry
   padding 20px 0
   .highlight
-    background-color: #f7fafe
+    background-color: $highlight-background-color
     border: 1px solid $color-light-blue
-    margin 5px 10px
-    padding: 15px $article-padding
+    border-radius 10px
+    margin 10px 0
+    padding: 3px $article-padding
     overflow: auto
     line-height: $font-size * $line-height
     font-family: $font-mono
+
+    .comment
+      color: #9999
+      font-style: italic;
 
     table
       width: auto
