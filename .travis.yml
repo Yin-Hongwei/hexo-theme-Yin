@@ -35,3 +35,4 @@ branches:
     # - hexo
 env:
  global:
+   - GH_REF: github.com/${U_NAME}/${U_NAME}.github.io.git
