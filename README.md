@@ -1,12 +1,13 @@
-# hexo-theme-Yin
+<h1><center>hexo-theme-Yin</center></h1>
 
-# Screenshots
+
+## Screenshots
 
 ![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/theme.jpg)
 
 <p align="center">
   <a href="https://travis-ci.org/"><img alt="JavaScript Style Guide" src="https://travis-ci.org/Yin-Hongwei/hexo-theme-Yin.svg?branch=master"></a>
-  <a href="https://travis-ci.org/"><img alt="JavaScript Style Guide" src="https://img.shields.io/github/license/Yin-Hongwei/hexo-theme-Yin"></a>
+  <a href=""><img alt="license" src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat"></a>
 </p>
 
 
@@ -37,3 +38,12 @@ theme: hexo-theme-Yin
 npm install hexo-renderer-jade hexo-renderer-sass --save
 ```
 
+
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2019 Yin-Hongwei
+
+ 
