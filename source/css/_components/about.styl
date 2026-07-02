@@ -245,6 +245,28 @@ $about-single-photo-width = 280px
   text-overflow: ellipsis
   white-space: nowrap
 
+.about-wechat-panel
+  .about-wechat-banner
+    padding: 0 12px 16px
+
+    img
+      display: block
+      width: 100%
+      max-width: 100%
+      margin: 0 auto
+      border-radius: $about-photo-radius
+      background: #f2f2f2
+
+  .about-wechat-hint
+    margin: 10px 0 0
+    color: $wechat-text-hint
+    font-size: 13px
+    line-height: 1.5
+    text-align: center
+
+  &:not(:has(.about-panel-title)) .about-wechat-banner
+    padding-top: 14px
+
 @media screen and (max-width: $sm)
   .about-signature-strip
     padding: 2px 12px 10px
@@ -297,3 +319,7 @@ $about-single-photo-width = 280px
   .about-cell-link-text,
   .about-cell-copy-text
     max-width: 8rem
+
+  .about-wechat-panel
+    .about-wechat-banner
+      padding: 0 8px 12px

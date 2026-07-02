@@ -27,6 +27,15 @@ social:
   envelope-o: ''
   github: ''
   weibo: ''
+  wechat: ''
+
+# About page WeChat official account
+about:
+  wechat:
+    enable: false
+    name: ''
+    banner: ''
+    hint: 微信搜一搜
 
 # ---------- Homepage ----------
 home:
@@ -55,19 +64,6 @@ footer:
   startTime: ''
   theme_url: https://github.com/Yin-Hongwei/hexo-theme-Yin
   theme_name: hexo-theme-Yin
-
-# busuanzi count for PV / UV in site
-busuanzi:
-  enable: false
-  site_uv: true
-  site_uv_header: <i class="fa fa-user"></i>
-  site_uv_footer:
-  site_pv: true
-  site_pv_header: <i class="fa fa-eye"></i>
-  site_pv_footer:
-  page_pv: true
-  page_pv_header: <i class="fa fa-file"></i>
-  page_pv_footer:
 
 # ---------- Features ----------
 comments:

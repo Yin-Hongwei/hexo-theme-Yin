@@ -284,8 +284,6 @@ theme_config:
     cloudflare:
       enable: false
       token: your_cf_token
-  busuanzi:
-    enable: true
 ```
 
 ### About page
@@ -316,7 +314,6 @@ See `themes/hexo-theme-Yin/_config.yml` for more settings:
 - `seo.enable` — SEO metadata and structured data
 - `analytics.google` / `analytics.baidu` / `analytics.umami` — site analytics
 - `footer.startTime` — site start year shown in footer
-- `busuanzi.enable` — PV/UV counters ([Busuanzi](https://busuanzi.ibruce.info/))
 
 ## License
 

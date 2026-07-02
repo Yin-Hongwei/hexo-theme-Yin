@@ -316,8 +316,6 @@ theme_config:
     cloudflare:
       enable: false
       token: your_cf_token
-  busuanzi:
-    enable: true   # 页脚 PV/UV 展示（与不蒜子脚本）
 ```
 
 ### 关于页
@@ -348,7 +346,6 @@ type: about
 - `seo.enable` — SEO 元数据与结构化数据
 - `analytics.google` / `analytics.baidu` / `analytics.umami` — 站点统计
 - `footer.startTime` — 页脚显示的建站年份
-- `busuanzi.enable` — 不蒜子 PV/UV 统计
 
 ## 许可证
 
