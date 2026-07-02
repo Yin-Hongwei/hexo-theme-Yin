@@ -1,0 +1,169 @@
+@keyframes sidebar-slide-in {
+    from {
+        transform: translateX(0);
+        opacity: 0.85;
+    }
+    to {
+        transform: translateX($sidebar-width);
+        opacity: 1;
+    }
+}
+
+@keyframes toc-content-in {
+    from {
+        opacity: 0;
+        transform: translateX(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -($sidebar-width);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    width: $sidebar-width;
+    height: 100vh;
+    background-color: $sidebar-bg;
+    border-right: 1px solid $sidebar-border;
+    box-shadow: 1px 0 8px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    box-sizing: border-box;
+    transform: translateX(0);
+
+    &.sidebar-animated {
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &[data-display="false"] {
+        display: none;
+    }
+
+    &.is-open {
+        transform: translateX($sidebar-width);
+
+        .sidebar-toc__content {
+            animation: toc-content-in 0.35s ease 0.08s both;
+        }
+    }
+
+    &.is-open:not(.sidebar-animated) {
+        animation: sidebar-slide-in 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+
+    .sidebar-toc {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        font-size: 13px;
+
+        a {
+            color: $sidebar-text-color;
+            text-decoration: none;
+        }
+
+        ol, li {
+            list-style: none;
+        }
+
+        ol {
+            margin: 0;
+            padding: 0;
+        }
+
+        &__title {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            min-height: $header-height;
+            padding: 0 16px;
+            background-color: $sidebar-title-bg;
+            border-bottom: 1px solid $wechat-divider;
+            text-align: left;
+            font-weight: 500;
+            font-size: 12px;
+            color: $sidebar-title-color;
+            letter-spacing: 0.04em;
+        }
+
+        &__content {
+            flex: 1;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 6px 0 12px;
+            -webkit-overflow-scrolling: touch;
+
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 2px;
+                background: rgba(0, 0, 0, 0.1);
+            }
+
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+        }
+
+        .toc-link {
+            display: block;
+            padding: 10px 14px 10px 16px;
+            border-left: 3px solid transparent;
+            line-height: 1.45;
+            color: $sidebar-text-color;
+            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &:hover {
+                background-color: $sidebar-hover-bg;
+                color: $sidebar-text-color;
+            }
+
+            &.active {
+                border-left-color: $sidebar-active-color;
+                background-color: $sidebar-active-bg;
+                color: $sidebar-active-color;
+                font-weight: 500;
+            }
+        }
+
+        .toc-child .toc-link {
+            padding-left: 28px;
+            font-size: 12px;
+            color: $sidebar-text-muted;
+
+            &:hover {
+                color: $sidebar-text-color;
+            }
+        }
+
+        .toc-child .toc-child .toc-link {
+            padding-left: 40px;
+            font-size: 12px;
+        }
+
+        .toc-child .toc-link.active {
+            color: $sidebar-active-color;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce)
+    #sidebar
+        transition: none
+
+        &.is-open:not(.sidebar-animated)
+            animation: none
+
+        &.is-open .sidebar-toc__content
+            animation: none

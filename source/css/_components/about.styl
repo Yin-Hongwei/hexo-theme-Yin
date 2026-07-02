@@ -1,0 +1,299 @@
+// About page (WeChat profile style)
+$about-photo-gap = 4px
+$about-photo-radius = 3px
+$about-single-photo-width = 280px
+
+.moments-about-content
+  padding-bottom: 24px
+
+.about-signature-strip
+  padding: 4px 16px 12px
+
+.about-signature-inner
+  display: flex
+  justify-content: flex-end
+
+.about-signature
+  position: relative
+  max-width: 82%
+  padding: 0 10px 0 0
+  border-right: 2px solid rgba($wechat-green, 0.45)
+  color: $wechat-text-muted
+  font-size: 14px
+  line-height: 1.65
+  text-align: right
+  word-break: break-word
+
+  p
+    margin: 0
+
+    & + p
+      margin-top: 6px
+
+.about-desc-panel
+  .about-desc-cell
+    padding: 14px 16px 16px
+
+  .about-desc-head
+    display: flex
+    align-items: center
+    gap: 10px
+    margin-bottom: 10px
+
+  .about-desc-icon
+    display: inline-flex
+    flex-shrink: 0
+    align-items: center
+    justify-content: center
+    width: 28px
+    height: 28px
+    border-radius: 6px
+    background: $wechat-green-light
+    color: $wechat-green
+    font-size: 13px
+    line-height: 1
+
+  .about-desc-label
+    color: $wechat-text
+    font-size: 15px
+    font-weight: 500
+    line-height: 1.4
+
+  .about-desc-text
+    margin: 0
+    padding-left: 38px
+    color: $wechat-text-muted
+    font-size: 14px
+    line-height: 1.75
+    letter-spacing: 0.01em
+    word-break: break-word
+
+.about-panel-title
+  display: flex
+  align-items: center
+  gap: 6px
+  padding: 14px 16px 8px
+  color: $wechat-text-hint
+  font-size: 13px
+  line-height: 1.4
+
+.about-panel-count
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  min-width: 18px
+  height: 18px
+  padding: 0 5px
+  border-radius: 9px
+  background: rgba(0, 0, 0, 0.06)
+  color: $wechat-text-muted
+  font-size: 11px
+  line-height: 1
+
+.about-photo-grid
+  display: grid
+  gap: $about-photo-gap
+  padding: 0 16px 16px
+
+  &[data-count="1"]
+    grid-template-columns: minmax(0, 1fr)
+    max-width: $about-single-photo-width
+
+    .about-photo-cell
+      aspect-ratio: auto
+      min-width: 0
+
+    .about-photo-link
+      border-radius: $about-photo-radius
+
+      img
+        width: 100%
+        height: auto
+        max-height: 420px
+        aspect-ratio: auto
+        object-fit: contain
+        background: #f2f2f2
+
+  &[data-count="2"],
+  &[data-count="4"]
+    grid-template-columns: repeat(2, minmax(0, 136px))
+    max-width: 136px * 2 + $about-photo-gap
+
+  &[data-count="3"],
+  &[data-count="5"],
+  &[data-count="6"],
+  &[data-count="7"],
+  &[data-count="8"],
+  &[data-count="9"]
+    grid-template-columns: repeat(3, 1fr)
+
+.about-photo-cell
+  position: relative
+  aspect-ratio: 1
+  overflow: hidden
+  border-radius: $about-photo-radius
+  background: #f2f2f2
+
+.about-photo-link
+  display: block
+  width: 100%
+  height: 100%
+  cursor: zoom-in
+  -webkit-tap-highlight-color: transparent
+
+  &:active
+    opacity: 0.88
+
+  img
+    display: block
+    width: 100%
+    height: 100%
+    margin: 0
+    padding: 0
+    border: none
+    object-fit: cover
+    transition: opacity 0.2s ease
+
+  &:hover img
+    opacity: 0.92
+
+.about-panels
+  display: flex
+  flex-direction: column
+  gap: 8px
+  margin-top: 8px
+
+.about-panel
+  background: $color-white
+
+.about-cells
+  border-top: 1px solid $wechat-divider
+
+  .about-panel:not(:has(.about-panel-title)) &
+    border-top: none
+
+.about-cell
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: 12px
+  min-height: 52px
+  padding: 12px 16px
+  border-bottom: 1px solid $wechat-divider
+  color: $wechat-text
+  text-decoration: none
+  transition: background 0.15s ease
+
+  &:last-child
+    border-bottom: none
+
+  &:hover
+    background: rgba(0, 0, 0, 0.02)
+
+  &.about-cell-static
+    cursor: text
+
+    &:hover
+      background: transparent
+
+.about-cell-label
+  display: flex
+  flex-shrink: 0
+  align-items: center
+  gap: 10px
+  font-size: 15px
+  line-height: 1.4
+
+  .fa
+    width: 20px
+    color: $wechat-text-muted
+    text-align: center
+    font-size: 16px
+
+.about-cell-value
+  display: flex
+  flex: 1
+  align-items: center
+  justify-content: flex-end
+  gap: 4px
+  min-width: 0
+  color: $wechat-text-muted
+  font-size: 14px
+  line-height: 1.4
+
+  .fa-angle-right
+    flex-shrink: 0
+    color: #c7c7cc
+    font-size: 16px
+
+.about-cell-muted
+  text-align: right
+  white-space: normal
+  word-break: break-word
+
+.about-cell-link-text
+  overflow: hidden
+  max-width: 12rem
+  text-overflow: ellipsis
+  white-space: nowrap
+
+.about-cell-copy-text
+  user-select: text
+  -webkit-user-select: text
+  overflow: hidden
+  max-width: 12rem
+  text-overflow: ellipsis
+  white-space: nowrap
+
+@media screen and (max-width: $sm)
+  .about-signature-strip
+    padding: 2px 12px 10px
+
+  .about-signature
+    max-width: 88%
+    padding-right: 8px
+    font-size: 13px
+
+  .about-desc-panel
+    .about-desc-cell
+      padding: 12px
+
+    .about-desc-icon
+      width: 26px
+      height: 26px
+      font-size: 12px
+
+    .about-desc-label
+      font-size: 14px
+
+    .about-desc-text
+      padding-left: 36px
+      font-size: 13px
+
+  .about-panel-title
+    padding: 12px 12px 6px
+
+  .about-photo-grid
+    padding: 0 12px 12px
+
+    &[data-count="1"]
+      max-width: min(72vw, $about-single-photo-width)
+
+    &[data-count="2"],
+    &[data-count="4"]
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+      max-width: min(72vw, $about-single-photo-width)
+
+  .about-cell
+    min-height: 48px
+    padding: 10px 12px
+
+  .about-cell-label
+    font-size: 14px
+
+  .about-cell-value
+    font-size: 13px
+
+  .about-cell-link-text,
+  .about-cell-copy-text
+    max-width: 8rem

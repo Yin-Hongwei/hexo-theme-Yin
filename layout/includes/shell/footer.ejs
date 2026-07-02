@@ -1,0 +1,14 @@
+<% var msg = theme.footer.startTime + '-' + new Date().getFullYear() + ' ' + config.author; %>
+<footer id="footer-outer">
+  <div id="footer-inner">
+    <p class="footer-text"><%- 'Copyright &copy; ' + msg %></p>
+    <% if (theme.footer.theme_url) { %>
+      <p class="footer-text">
+        <a href="<%- theme.footer.theme_url %>" target="_blank" rel="noopener noreferrer"><%= theme.footer.theme_name || 'Theme' %></a>
+      </p>
+    <% } %>
+    <% if (theme.busuanzi && theme.busuanzi.enable) { %>
+      <%- partial('includes/shared/busuanzi') %>
+    <% } %>
+  </div>
+</footer>

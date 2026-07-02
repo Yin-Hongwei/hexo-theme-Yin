@@ -1,0 +1,160 @@
+// Mobile navigation drawer (global selectors — panel may be reparented to body)
+@media screen and (max-width: $sm)
+  #page-header .search--desktop
+    display: none !important
+
+  #page-header .toggle-menu
+    display: inline-flex !important
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+    min-width: 44px
+    min-height: 44px
+    padding: 0
+    border: none
+    background: transparent
+    cursor: pointer
+    -webkit-tap-highlight-color: transparent
+    touch-action: manipulation
+
+  #page-header .toggle-menu .toggle-menu__icon
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    gap: 5px
+    width: 20px
+    height: 16px
+
+  #page-header .toggle-menu .toggle-menu__icon span
+    display: block
+    width: 18px
+    height: 2px
+    border-radius: 1px
+    background: currentColor
+    transition: transform 0.25s ease, opacity 0.2s ease, width 0.25s ease
+
+  .mobile-nav-backdrop
+    position: fixed
+    inset: 0
+    z-index: 1090
+    display: block
+    background: rgba(0, 0, 0, 0.52)
+    opacity: 0
+    visibility: hidden
+    pointer-events: none
+    transition: opacity 0.28s ease, visibility 0.28s
+    -webkit-tap-highlight-color: transparent
+
+  .mobile-nav-panel
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    z-index: 1100
+    display: flex
+    flex-direction: column
+    width: 260px
+    max-width: 72vw
+    margin: 0
+    padding: 0
+    border-radius: 0
+    background: $color-white
+    box-shadow: -6px 0 32px rgba(0, 0, 0, 0.18)
+    overflow: hidden
+    transform: translate3d(100%, 0, 0)
+    visibility: hidden
+    pointer-events: none
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.32s
+
+  .mobile-nav-panel__header
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    justify-content: space-between
+    min-height: $header-height
+    padding: 0 1rem 0 1.25rem
+    border-bottom: 1px solid $wechat-divider
+    background: $color-white
+
+  .mobile-nav-panel__title
+    color: $wechat-text
+    font-size: 17px
+    font-weight: 600
+    line-height: 1.3
+
+  .mobile-nav-panel__body
+    flex: 1
+    overflow-x: hidden
+    overflow-y: auto
+    padding: 0.5rem 0 1.25rem
+    -webkit-overflow-scrolling: touch
+
+  .mobile-nav-panel__body a
+    display: flex
+    align-items: center
+    margin: 0
+    padding: 0.9rem 1.25rem
+    min-height: 50px
+    color: $wechat-text !important
+    text-shadow: none !important
+    text-decoration: none
+    font-size: 16px
+    line-height: 1.35
+    white-space: nowrap
+    opacity: 1 !important
+    border-bottom: 1px solid rgba(237, 237, 237, 0.9)
+    -webkit-tap-highlight-color: transparent
+    touch-action: manipulation
+    cursor: pointer
+
+  .mobile-nav-panel__body a:last-child
+    border-bottom: none
+
+  .mobile-nav-panel__body a::after
+    display: none !important
+
+  .mobile-nav-panel__body a:active
+    background: rgba(0, 0, 0, 0.04)
+
+  .mobile-nav-panel__body a.social-icon
+    min-width: 0
+    font-size: 16px
+
+  .mobile-nav-panel__body a i
+    display: none !important
+
+  .mobile-nav-panel__body a .menu-item-label
+    display: inline
+
+  body.mobile-nav-open
+    overflow: hidden
+
+  body.mobile-nav-open .mobile-nav-backdrop
+    display: block
+    opacity: 1
+    visibility: visible
+    pointer-events: auto
+
+  body.mobile-nav-open .mobile-nav-panel
+    transform: translate3d(0, 0, 0)
+    visibility: visible
+    pointer-events: auto
+
+  body.mobile-nav-open #page-header
+    z-index: 1101
+
+  body.mobile-nav-open #page-header .toggle-menu[aria-expanded="true"] .toggle-menu__icon span:nth-child(1)
+    transform: translateY(7px) rotate(45deg)
+    width: 18px
+
+  body.mobile-nav-open #page-header .toggle-menu[aria-expanded="true"] .toggle-menu__icon span:nth-child(2)
+    opacity: 0
+    transform: scaleX(0)
+
+  body.mobile-nav-open #page-header .toggle-menu[aria-expanded="true"] .toggle-menu__icon span:nth-child(3)
+    transform: translateY(-7px) rotate(-45deg)
+    width: 18px
+
+  body.mobile-nav-open .moments-profile-header.scrolled .toggle-menu
+    color: $color-black-light

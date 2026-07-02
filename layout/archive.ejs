@@ -1,0 +1,7 @@
+<article id="archive" class="moments-archive-content">
+  <div class="archive-summary">
+    <span class="archive-summary-count">共 <%= site.posts.length %> 篇文章</span>
+  </div>
+  <%- partial('includes/archive/archive-list', { posts: page.posts }) %>
+</article>
+<%- partial('includes/shared/pagination') %>

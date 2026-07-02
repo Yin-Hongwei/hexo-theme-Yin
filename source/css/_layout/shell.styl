@@ -1,0 +1,190 @@
+// Layout grid, page shell & fixed widgets
+.layout
+  margin: 0 auto
+  width: $content-width
+  opacity: 0
+
+#content-outer
+  flex: 1 auto
+  width: 100%
+  position: relative
+
+  #content-inner
+    padding-bottom: 3rem
+
+    ul, ol, dl
+      margin-top: 0.4rem
+      padding: 0
+
+    ol
+      padding-left: 1.25em
+
+#content-inner
+  .img-alt
+    text-decoration: none
+
+body.moments-home,
+body.moments-about,
+body.moments-archive,
+body.moments-page
+  background-color: $wechat-bg
+  overflow-x: hidden
+
+  #content-inner.layout
+    width: 100%
+    max-width: $content-width
+    padding: 0 1rem
+
+  #content-outer
+    background: $wechat-bg
+
+  #nav.moments-profile
+    background: transparent
+
+  .moments-feed,
+  .moments-about-content,
+  .moments-archive-content,
+  .moments-page-content
+    margin: 0 -1rem
+
+body.post-page
+  overflow-x: hidden
+
+#toggle-sidebar
+  display: none
+  position: fixed
+  top: 50%
+  left: 0
+  z-index: 110
+  align-items: center
+  justify-content: center
+  width: $sidebar-toggle-width
+  height: $sidebar-toggle-height
+  margin: 0
+  padding: 0
+  border: 1px solid $sidebar-toggle-border
+  border-left: none
+  border-radius: 0 $sidebar-toggle-radius $sidebar-toggle-radius 0
+  background: $sidebar-toggle-bg
+  box-shadow: $sidebar-toggle-shadow
+  color: $sidebar-toggle-color
+  cursor: pointer
+  transform: translateY(-50%)
+  transition: left 0.2s ease, background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease
+  -webkit-tap-highlight-color: transparent
+
+  &:hover
+    background: $sidebar-toggle-hover-bg
+    color: $wechat-text
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12)
+
+  .sidebar-toggle__chevron
+    flex-shrink: 0
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+
+body.post-page:has(#sidebar[data-display="true"]) #toggle-sidebar
+  display: flex
+
+body.post-page:has(#sidebar.is-open) #toggle-sidebar
+  left: $sidebar-width
+  transform: translateX(-50%) translateY(-50%)
+
+  .sidebar-toggle__chevron
+    transform: rotate(0)
+
+body.post-page:has(#sidebar[data-display="true"]:not(.is-open)) #toggle-sidebar
+  .sidebar-toggle__chevron
+    transform: rotate(180deg)
+
+#go-up
+  position: fixed
+  right: $go-up-right
+  bottom: $go-up-bottom
+  z-index: 100
+  font-size: 16px
+  opacity: 0
+  cursor: pointer
+  color: $wechat-text-hint
+  transition: color 0.15s ease
+
+  &:hover
+    color: $wechat-green
+
+@media screen and (max-width: $sm)
+  .layout
+    width: 100%
+    max-width: 100%
+
+  body.moments-home,
+  body.moments-about,
+  body.moments-archive,
+  body.moments-page
+    #content-inner.layout
+      padding: 0 0.5rem
+
+    .moments-feed,
+    .moments-about-content,
+    .moments-archive-content,
+    .moments-page-content
+      margin: 0 -0.5rem
+
+  #go-up
+    right: 1rem
+    bottom: 1.25rem
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    background: rgba(255, 255, 255, 0.95)
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12)
+    -webkit-tap-highlight-color: transparent
+    touch-action: manipulation
+
+@media screen and (min-width: $sm)
+  #tag
+    width: 55%
+
+@media screen and (min-width: $sm) and (max-width: $bg)
+  .layout
+    width: 85%
+
+  #tag
+    width: 70%
+
+@media screen and (min-width: ($bg + 1px))
+  body.post-page:has(#sidebar.is-open)
+    padding-left: $sidebar-width
+    transition: padding-left 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+
+    #nav.post-cover .moments-cover
+      width: 100%
+      margin-left: 0
+
+@media screen and (max-width: $bg)
+  .layout
+    width: 90%
+
+  #tag
+    width: 90%
+
+  #toggle-sidebar,
+  #sidebar
+    display: none !important
+
+  body.post-page
+    padding-left: 0 !important
+
+    &:has(#sidebar.is-open)
+      #page-header.moments-profile-header,
+      #page-header.fixed,
+      > #page-header
+        left: 0
+        right: 0
+        width: 100%
+
+      #content-inner.layout
+        max-width: 100%
+        padding-left: 0.75rem
+        padding-right: 0.75rem

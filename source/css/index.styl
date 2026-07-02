@@ -1,0 +1,42 @@
+// ── Vendor ───────────────────────────────────────────────
+if hexo-config("cdn.js.fancybox") == "https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"
+  @import url("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css")
+else
+  @import "_vendor/jquery.fancybox.min.css"
+@import "_generic/normalize.min.css"
+
+// ── Settings & tools ─────────────────────────────────────
+@import "_settings/variables"
+@import "_tools/wechat-table"
+@import "_tools/wechat-images"
+@import "_tools/wechat-header"
+@import "_tools/mobile-nav"
+@import "_tools/lazyload"
+
+// ── Foundation ───────────────────────────────────────────
+@import "_generic/base"
+
+// ── Layout shell ─────────────────────────────────────────
+@import "_layout/shell"
+
+// ── Components ───────────────────────────────────────────
+@import "_components/header"
+@import "_components/sidebar"
+@import "_components/footer"
+@import "_components/post"
+@import "_components/page"
+@import "_components/moments-profile"
+@import "_components/moments-feed"
+@import "_components/about"
+@import "_components/archive"
+@import "_components/pagination"
+@import "_components/comments"
+@import "_components/copyright"
+
+// ── Syntax highlight ─────────────────────────────────────
+@import "_highlight/highlight"
+@import "_tools/dark-mode"
+
+// ── Features (optional) ────────────────────────────────────
+if (hexo-config("local_search") && hexo-config("local_search.enable")) || (hexo-config("algolia_search") && hexo-config("algolia_search.enable"))
+  @import "_components/local-search"

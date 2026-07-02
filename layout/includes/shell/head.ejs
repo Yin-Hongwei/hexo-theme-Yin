@@ -1,0 +1,94 @@
+<%
+var pageTitle = page.title || config.subtitle || '';
+if (is_archive()) pageTitle = _p('page.archives');
+if (is_tag()) pageTitle = _p('page.tag') + ': ' + page.tag;
+if (is_category()) pageTitle = _p('page.category') + ': ' + page.category;
+if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
+if (is_year()) pageTitle += ': ' + page.year;
+pageTitle ? pageTitle += ' | ' + config.title : pageTitle = config.title;
+
+var pageDescription = page.description || page.title || config.description || '';
+var pageKeywords = (config.keywords || []).join(',');
+if (page.tags && page.tags.data) pageKeywords = page.tags.data.map(function (tag) { return tag.name; }).join(',');
+if (page.keywords) pageKeywords = page.keywords.join(',');
+var pageAuthor = config.email ? config.author + ',' + config.email : config.author;
+var pageCopyright = config.copyright || config.author;
+%>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="<%= pageDescription %>">
+<meta name="keywords" content="<%= pageKeywords %>">
+<meta name="author" content="<%= pageAuthor %>">
+<meta name="copyright" content="<%= pageCopyright %>">
+<title><%= pageTitle %></title>
+<%- partial('includes/shell/seo') %>
+<%- partial('includes/shared/analytics') %>
+<% if (theme.dark_mode && theme.dark_mode.enable) { %>
+<script>
+  (function () {
+    var key = 'yin-theme-mode'
+    var mode = '<%- theme.dark_mode.default || "auto" %>'
+    try {
+      mode = localStorage.getItem(key) || mode
+    } catch (err) {}
+    var dark = mode === 'dark' || (mode !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+    document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+  })()
+</script>
+<% } %>
+<script>
+  (function () {
+    if (location.hash === '#more') {
+      history.replaceState(null, '', location.pathname + location.search)
+    }
+  })()
+</script>
+<link rel="icon" href="<%- url_for(theme.avatar_icon) %>">
+<% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
+  <% theme.stylesheets.forEach(function (url) { %>
+    <link rel="stylesheet" href="<%- url_for(url) %>">
+  <% }); %>
+  <% Object.keys(theme.cdn.css).forEach(function (key) { %>
+    <% var item = theme.cdn.css[key]; %>
+    <% if (item !== undefined) { %>
+      <link rel="stylesheet" href="<%= item %>">
+    <% } %>
+  <% }); %>
+<% } %>
+<% if (theme.comments.gitalk.enable) { %>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<% } %>
+<script>
+  var GLOBAL_CONFIG = {
+    root: '<%- config.root %>',
+    hexoVersion: '<%- hexoVersion() %>'<% if (theme.dark_mode && theme.dark_mode.enable) { %>,
+    darkMode: {
+      enable: true,
+      default: '<%- theme.dark_mode.default || "auto" %>',
+      labels: {
+        toggle: '<%- _p("dark_mode.toggle") %>',
+        light: '<%- _p("dark_mode.light") %>',
+        dark: '<%- _p("dark_mode.dark") %>'
+      }
+    }<% } %><% if (theme.local_search && theme.local_search.enable && !(theme.algolia_search && theme.algolia_search.enable)) { %>,
+    localSearch: {
+      path: '<%- config.search.path %>',
+      languages: {
+        hits_empty: '<%- _p("local_search.hits_empty") %>'
+      }
+    }<% } %><% if (theme.algolia_search && theme.algolia_search.enable) { %>,
+    algoliaSearch: {
+      appId: '<%- theme.algolia_search.app_id %>',
+      apiKey: '<%- theme.algolia_search.api_key %>',
+      indexName: '<%- theme.algolia_search.index_name %>',
+      hitsPerPage: <%- theme.algolia_search.hits_per_page || 10 %>,
+      languages: {
+        hits_empty: '<%- _p("algolia_search.hits_empty") %>'
+      }
+    }<% } %>
+  }
+</script>

@@ -1,0 +1,26 @@
+<%
+var searchEnabled = (theme.local_search && theme.local_search.enable) || (theme.algolia_search && theme.algolia_search.enable);
+var searchLabel = (theme.algolia_search && theme.algolia_search.enable) ? _p('algolia_search.label') : _p('local_search.label');
+var searchPlaceholder = (theme.algolia_search && theme.algolia_search.enable) ? _p('algolia_search.input_placeholder') : _p('local_search.input_placeholder');
+var searchHint = (theme.algolia_search && theme.algolia_search.enable) ? _p('algolia_search.hint') : _p('local_search.hint');
+%>
+<% if (searchEnabled) { %>
+  <div id="site-search" class="search-dialog">
+    <div id="site-search-title" class="search-dialog__title"><%= searchLabel %></div>
+    <div id="site-search-input-panel">
+      <div id="site-search-input">
+        <div class="search-box">
+          <input class="search-box--input" placeholder="<%= searchPlaceholder %>" autocomplete="off">
+        </div>
+      </div>
+    </div>
+    <div id="site-search-results">
+      <div id="site-search-hits"></div>
+      <p class="search__hint"><%= searchHint %></p>
+    </div>
+    <span class="search-close-button">
+      <i class="fa fa-times"></i>
+    </span>
+  </div>
+  <div class="search-mask"></div>
+<% } %>

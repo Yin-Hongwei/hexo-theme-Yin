@@ -1,0 +1,201 @@
+// Static pages
+#tag, #page-content
+  margin: auto
+  color: $wechat-text
+
+#tag
+  padding: 10px
+
+  .tag-title
+    font-size: 2rem
+
+// WeChat-style static page card
+.moments-page-content
+  padding-bottom: 24px
+
+.page-card
+  background: $color-white
+
+.page-header
+  padding: 20px 20px 0
+
+.page-title
+  margin: 0
+  padding-bottom: 16px
+  border-bottom: 1px solid $wechat-divider
+  color: $color-black-dark
+  font-size: 22px
+  font-weight: 600
+  line-height: 1.45
+  letter-spacing: 0.02em
+  word-break: break-word
+
+.page-body
+  padding: 16px 20px 24px
+
+#post-content.article-container
+  color: $wechat-text
+  font-size: 16px
+  line-height: 1.75
+  letter-spacing: 0.02em
+  word-break: break-word
+  -webkit-font-smoothing: antialiased
+
+  > *:first-child
+    margin-top: 0
+
+  > *:last-child
+    margin-bottom: 0
+
+  p
+    margin: 0 0 1.25em
+
+  h1, h2, h3, h4, h5, h6
+    margin: 1.6em 0 0.75em
+    color: $color-black-dark
+    font-weight: 600
+    line-height: 1.45
+    letter-spacing: 0.02em
+    word-break: break-word
+
+  h1
+    font-size: 1.375em
+    margin-top: 2em
+
+  h2
+    font-size: 1.25em
+    padding-left: 10px
+    border-left: 3px solid $wechat-green
+
+  h3
+    font-size: 1.125em
+
+  h4, h5, h6
+    font-size: 1em
+    color: $wechat-text-muted
+
+  a
+    color: $wechat-link
+    text-decoration: none
+    border-bottom: 1px solid rgba($wechat-link, 0.25)
+    transition: color 0.15s ease, border-color 0.15s ease
+
+    &:hover
+      color: darken($wechat-link, 8%)
+      border-bottom-color: rgba($wechat-link, 0.45)
+
+  strong, b
+    color: $color-black-dark
+    font-weight: 600
+
+  em, cite
+    font-style: italic
+    color: $wechat-text-muted
+
+  ul, ol
+    margin: 0 0 1.25em
+    padding: 0
+
+  ul ul, ol ul
+    padding-left: 0.75em
+
+  ol
+    list-style: decimal
+    padding-left: 1.25em
+
+  li
+    margin: 0.35em 0
+
+    ul, ol
+      margin: 0.35em 0 0
+
+  blockquote
+    margin: 1.25em 0
+    padding: 12px 14px
+    border-left: 3px solid rgba($wechat-green, 0.55)
+    border-radius: 0 6px 6px 0
+    background: $wechat-bg
+    color: $wechat-text-muted
+    font-size: 0.9375em
+    line-height: 1.7
+
+    p:last-child
+      margin-bottom: 0
+
+  hr
+    margin: 1.75em 0
+    border: none
+    border-top: 1px solid $wechat-divider
+
+  wechat-article-images()
+
+  wechat-article-table()
+
+  code
+    padding: 0.15em 0.4em
+    border-radius: 4px
+    background: rgba(0, 0, 0, 0.05)
+    color: $color-black-light
+    font-family: $code-font
+    font-size: 0.875em
+
+  pre
+    margin: 1em 0
+    border-radius: 6px
+    overflow: auto
+
+    code
+      padding: 0
+      background: transparent
+      font-size: inherit
+
+  .code-block-wrap pre
+    margin: 0
+
+  .code-block-wrap
+    margin: 0.75em 0
+
+  sup, sub
+    font-size: 0.75em
+    line-height: 0
+    position: relative
+    vertical-align: baseline
+
+  sup
+    top: -0.5em
+
+  sub
+    bottom: -0.2em
+
+#site-social-icons
+  margin: 0 auto
+  width: 15rem
+  text-align: center
+
+  .social-icon
+    margin: 0 0.5rem
+    color: $color-black-light
+    text-shadow: $light-shadow
+    font-size: 1.2rem
+    cursor: pointer
+
+@media screen and (max-width: $sm)
+  .page-header
+    padding: 16px 16px 0
+
+  .page-title
+    font-size: 20px
+    padding-bottom: 14px
+
+  .page-body
+    padding: 14px 16px 20px
+
+  #post-content.article-container
+    font-size: 15px
+    line-height: 1.72
+
+    h2
+      padding-left: 8px
+
+    blockquote
+      padding: 10px 12px

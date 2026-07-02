@@ -1,0 +1,593 @@
+// WeChat-style dark mode overrides
+
+html[data-theme="dark"]
+  color-scheme: dark
+
+  // ── Base ───────────────────────────────────────────────
+  body
+    background-color: $wechat-dark-bg
+    color: $wechat-dark-text
+
+  a
+    color: $wechat-dark-text
+
+  a img, a video
+    border-color: $wechat-dark-divider
+
+  // ── Moments layout shell ───────────────────────────────
+  body.moments-home,
+  body.moments-about,
+  body.moments-archive,
+  body.moments-page
+    background-color: $wechat-dark-bg
+
+    #content-outer
+      background: $wechat-dark-bg
+
+  // ── Moments feed ───────────────────────────────────────
+  .moments-feed
+    background: $wechat-dark-bg
+
+  .moments-item
+    background: $wechat-dark-bg-card
+    border-bottom-color: $wechat-dark-divider
+
+  .moments-name,
+  .moments-more,
+  .moments-tag
+    color: $wechat-dark-link
+
+  .moments-title
+    color: $wechat-dark-text
+
+    &:hover
+      color: $wechat-dark-link
+
+  .moments-content,
+  .moments-content .content
+    color: $wechat-dark-text
+
+  .moments-meta,
+  .moments-meta time,
+  .moments-meta__sep
+    color: $wechat-dark-text-hint
+
+  .moments-actions
+    .moments-action-btn
+      background: $wechat-dark-action-bg
+
+      &:hover
+        background: $wechat-dark-action-bg-hover
+
+    .moments-action-dot
+      background: $wechat-dark-link
+
+    .moments-action-menu
+      background: $wechat-dark-bg-elevated
+
+  // ── About page ─────────────────────────────────────────
+  .about-signature
+    border-right-color: rgba($wechat-green, 0.35)
+    color: $wechat-dark-text-muted
+
+  .about-panel
+    background: $wechat-dark-bg-card
+
+  .about-panel-title
+    color: $wechat-dark-text-hint
+
+  .about-panel-count
+    background: rgba(255, 255, 255, 0.08)
+    color: $wechat-dark-text-muted
+
+  .about-desc-label
+    color: $wechat-dark-text
+
+  .about-desc-text
+    color: $wechat-dark-text-muted
+
+  .about-desc-icon
+    background: $wechat-dark-green-light
+    color: $wechat-green
+
+  .about-cells,
+  .about-cell
+    border-color: $wechat-dark-divider
+
+  .about-cell
+    color: $wechat-dark-text
+
+    &:hover
+      background: $wechat-dark-fill-hover
+
+  .about-cell-label .fa
+    color: $wechat-dark-text-muted
+
+  .about-cell-value
+    color: $wechat-dark-text-muted
+
+    .fa-angle-right
+      color: $wechat-dark-chevron
+
+  .about-photo-cell,
+  .about-photo-grid[data-count="1"] .about-photo-link img
+    background: $wechat-dark-photo-bg
+
+  // ── Archive page ───────────────────────────────────────
+  .archive-summary
+    color: $wechat-dark-text-hint
+
+  .archive-summary-page
+    color: $wechat-dark-text-muted
+
+  .archive-panel
+    background: $wechat-dark-bg-card
+
+  .archive-panel-title
+    color: $wechat-dark-text-hint
+
+  .archive-cells,
+  .archive-cell
+    border-color: $wechat-dark-divider
+
+  .archive-cell
+    color: $wechat-dark-text
+
+    &:hover
+      background: $wechat-dark-fill-hover
+
+      .archive-cell-title
+        color: $wechat-dark-link
+
+  .archive-cell-title
+    color: $wechat-dark-text
+
+  .archive-cell-meta,
+  .archive-cell-meta time
+    color: $wechat-dark-text-muted
+
+  .archive-cell-meta .fa-angle-right
+    color: $wechat-dark-chevron
+
+  // ── Static page & post cards ─────────────────────────────
+  .page-card,
+  .about-card
+    background: $wechat-dark-bg-card
+
+  .page-title,
+  .post-title,
+  .archive-summary-count
+    color: $wechat-dark-text
+    border-bottom-color: $wechat-dark-divider
+
+  #post .post-title
+    color: $wechat-dark-text
+    border-bottom-color: $wechat-dark-divider
+
+  #tag, #page-content
+    color: $wechat-dark-text
+
+  #post-content.article-container
+    color: $wechat-dark-text
+
+    h1, h2, h3, h4, h5, h6
+      color: $wechat-dark-text
+      border-bottom-color: $wechat-dark-divider
+
+    h4, h5, h6
+      color: $wechat-dark-text-muted
+
+    a
+      color: $wechat-dark-link
+      border-bottom-color: rgba($wechat-dark-link, 0.25)
+
+      &:hover
+        color: lighten($wechat-dark-link, 8%)
+        border-bottom-color: rgba($wechat-dark-link, 0.45)
+
+    strong, b
+      color: $wechat-dark-text
+
+    em, cite
+      color: $wechat-dark-text-muted
+
+    blockquote
+      background: $wechat-dark-bg-secondary
+      border-left-color: rgba($wechat-green, 0.45)
+      color: $wechat-dark-text-muted
+
+    hr
+      border-top-color: $wechat-dark-divider
+      border-color: $wechat-dark-divider
+
+    code
+      background: rgba(255, 255, 255, 0.08)
+      color: $wechat-dark-text
+
+  // ── Code blocks ────────────────────────────────────────
+  .article-container pre,
+  #post-content pre,
+  #post pre,
+  .article-entry pre,
+  figure.highlight,
+  figure.highlight pre,
+  figure.highlight .code pre
+    background: $wechat-dark-code-bg
+    color: $wechat-dark-text
+
+  .code-block-wrap
+    border-color: $wechat-dark-divider
+    box-shadow: none
+    background: $wechat-dark-code-bg
+
+    figure.highlight,
+    figure.highlight pre,
+    figure.highlight .code pre
+      background: $wechat-dark-code-bg
+
+    .code-block-header
+      background: $wechat-dark-bg-elevated
+      border-bottom-color: $wechat-dark-divider
+      color: $wechat-dark-text-hint
+
+    .code-block-lang
+      color: $wechat-dark-text-hint
+
+    .code-block-copy
+      color: $wechat-dark-text-hint
+
+      &:hover
+        color: $wechat-dark-link
+        background: $wechat-dark-fill-hover
+
+  // ── Header ─────────────────────────────────────────────
+  body > #page-header
+    cover-header-bar-dark()
+
+  #nav > #page-header:not(.moments-profile-header)
+    cover-header-bar-dark()
+
+  #nav:not(.moments-profile)
+    cover-top-scrim-dark()
+
+  .moments-cover
+    cover-top-scrim-dark()
+
+  #page-header.fixed
+    wechat-header-bar-dark(true)
+
+  #page-header
+    &.is-fixed,
+    &.moments-header--solid
+      background: rgba($wechat-dark-bg-card, 0.92)
+      box-shadow: 0 1px 0 $wechat-dark-divider
+
+  #page-header.moments-profile-header
+    cover-header-bar-dark()
+
+    &::before
+      background: $header-bar-dark-bg-solid
+      border-bottom-color: $wechat-dark-divider
+
+    &.scrolled
+      wechat-header-bar-text-dark()
+
+      .header-post-title
+        color: $wechat-dark-text
+
+      .header-brand-avatar
+        background: rgba(255, 255, 255, 0.08)
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0, 0, 0, 0.35)
+
+  body.mobile-nav-open .moments-profile-header.scrolled .toggle-menu
+    color: $wechat-dark-text
+
+  // ── Footer ─────────────────────────────────────────────
+  #footer-outer
+    background: $wechat-dark-bg-secondary
+    border-top-color: $wechat-dark-divider
+    color: $wechat-dark-text-hint
+
+  // ── Search ─────────────────────────────────────────────
+  .search-dialog
+    background: $wechat-dark-bg-card
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45)
+
+    hr
+      border-top-color: $wechat-dark-divider
+
+    span.search-close-button
+      color: $wechat-dark-text-hint
+
+      &:hover
+        color: $wechat-dark-text
+
+    &__title
+      color: $wechat-dark-text
+
+  #site-search
+    .search-box
+      &:before
+        color: $wechat-dark-text-hint
+
+      input
+        background: $wechat-dark-bg-secondary
+        color: $wechat-dark-text
+
+        &::placeholder
+          color: $wechat-dark-text-hint
+
+        &:focus
+          background: $wechat-dark-bg-elevated
+
+    #site-search-results
+      border-top-color: $wechat-dark-divider
+
+    .search__hint
+      color: $wechat-dark-text-hint
+
+    .search__hit-item
+      border-bottom-color: $wechat-dark-divider
+
+      &:hover
+        background: $wechat-dark-bg-secondary
+
+      a
+        color: $wechat-dark-text
+
+    .search__hits-empty
+      color: $wechat-dark-text-muted
+
+  // ── Sidebar ────────────────────────────────────────────
+  #sidebar
+    background: $wechat-dark-bg-secondary
+    border-right-color: $wechat-dark-divider
+    box-shadow: 1px 0 8px rgba(0, 0, 0, 0.25)
+
+    .sidebar-toc__title
+      background: $wechat-dark-bg-card
+      border-bottom-color: $wechat-dark-divider
+      color: $wechat-dark-text-hint
+
+    .sidebar-toc__content
+      &::-webkit-scrollbar-thumb
+        background: rgba(255, 255, 255, 0.12)
+
+    .toc-link
+      color: $wechat-dark-text-muted
+
+      &:hover
+        background: $wechat-dark-fill-hover
+        color: $wechat-dark-text
+
+      &.active
+        border-left-color: $wechat-green
+        color: $wechat-green
+        background: $wechat-dark-green-light
+
+    .toc-child .toc-link
+      color: $wechat-dark-text-hint
+
+      &:hover
+        color: $wechat-dark-text
+
+      &.active
+        color: $wechat-green
+
+  #toggle-sidebar
+    background: $wechat-dark-bg-card
+    border-color: $wechat-dark-divider
+    color: $wechat-dark-text-hint
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35)
+
+    &:hover
+      background: $wechat-dark-bg-elevated
+      color: $wechat-dark-text
+
+  // ── Pagination ─────────────────────────────────────────
+  #pagination
+    .pagination
+      .page-number, .extend
+        background: $wechat-dark-bg-card
+        color: $wechat-dark-text
+        box-shadow: none
+
+        &:hover
+          background: $wechat-dark-green-light
+          color: $wechat-green
+
+      .current
+        background: $wechat-green
+        color: $color-white
+
+        &:hover
+          background: $wechat-green
+          color: $color-white
+
+  // ── Copyright & comments ───────────────────────────────
+  .post-copyright
+    border-color: $wechat-dark-divider
+    background: $wechat-dark-bg-secondary
+
+    &__title,
+    &__value
+      color: $wechat-dark-text
+
+    &__label,
+    &__note
+      color: $wechat-dark-text-hint
+
+    &__link
+      color: $wechat-dark-link
+
+    &__note
+      border-top-color: $wechat-dark-divider
+
+  #gitalk-container
+    border-top-color: $wechat-dark-divider
+
+    .gt-comments-null
+      color: $wechat-dark-text-hint
+
+  .gt-container
+    color: $wechat-dark-text
+
+    a.is--active
+      color: $wechat-dark-text
+
+      &:hover
+        color: $wechat-dark-text
+
+    .gt-meta
+      border-bottom-color: $wechat-dark-divider
+
+    .gt-version
+      color: $wechat-dark-text-hint
+
+    .gt-copyright
+      border-top-color: $wechat-dark-divider
+
+    .gt-popup
+      background: $wechat-dark-bg-card
+      border-color: $wechat-dark-divider
+
+      .gt-action
+        color: $wechat-dark-text
+
+        &:hover
+          background: $wechat-dark-fill-hover
+
+    .gt-avatar-github
+      background: $wechat-dark-bg-elevated
+      border-radius: 3px
+
+      .gt-svg svg
+        fill: $wechat-dark-text-muted
+
+    .gt-header-textarea
+      background-color: $wechat-dark-bg-elevated
+      border-color: $wechat-dark-divider
+      color: $wechat-dark-text
+
+      &::placeholder
+        color: $wechat-dark-text-hint
+
+      &:hover
+        background-color: $wechat-dark-bg-card
+
+      &:focus
+        background-color: $wechat-dark-bg-card
+        border-color: rgba($wechat-dark-link, 0.4)
+
+    .gt-header-preview
+      background-color: $wechat-dark-bg-elevated
+      border-color: $wechat-dark-divider
+
+      .markdown-body
+        color: $wechat-dark-text
+
+    .gt-btn-preview
+      background-color: $wechat-dark-bg-elevated
+      color: $wechat-dark-link
+      border-color: rgba($wechat-dark-link, 0.5)
+
+      &:hover
+        background-color: $wechat-dark-action-bg-hover
+        border-color: $wechat-dark-link
+
+    .gt-comment-content
+      background-color: $wechat-dark-bg-secondary
+
+      &:hover
+        box-shadow: none
+
+    .gt-comment-admin .gt-comment-content
+      background-color: rgba($wechat-dark-link, 0.08)
+
+    .gt-comment-text,
+    .gt-comment-date
+      color: $wechat-dark-text-hint
+
+    .gt-comment-body
+      color: $wechat-dark-text !important
+
+      .markdown-body
+        color: $wechat-dark-text
+
+        a
+          color: $wechat-dark-link
+
+        blockquote
+          color: $wechat-dark-text-muted
+          border-left-color: $wechat-dark-divider
+
+        code
+          background-color: $wechat-dark-bg-elevated
+
+        pre
+          background-color: $wechat-dark-bg-elevated
+
+        table th,
+        table td
+          border-color: $wechat-dark-divider
+
+        table tr
+          background-color: $wechat-dark-bg-secondary
+          border-top-color: $wechat-dark-divider
+
+        table tr:nth-child(2n)
+          background-color: $wechat-dark-bg-elevated
+
+    .gt-loader
+      border-color: $wechat-dark-text-hint
+
+      &:before
+        background-color: $wechat-dark-text-hint
+
+  .qr-code
+    padding: 1rem
+    border-radius: 8px
+    background: $wechat-dark-bg-card
+
+  // ── Mobile nav (drawer only — desktop uses inline menu without panel chrome)
+  @media screen and (max-width: $sm)
+    .mobile-nav-panel
+      background: $wechat-dark-bg-card
+      box-shadow: -6px 0 32px rgba(0, 0, 0, 0.45)
+
+    .mobile-nav-panel__header
+      background: $wechat-dark-bg-card
+      border-bottom-color: $wechat-dark-divider
+
+    .mobile-nav-panel__title
+      color: $wechat-dark-text
+
+    .mobile-nav-panel__body a
+      color: $wechat-dark-text !important
+      border-bottom-color: $wechat-dark-divider
+
+      &:active
+        background: $wechat-dark-fill-hover
+
+    .mobile-nav-panel__body a.social-icon i
+      color: $wechat-dark-text-muted
+
+  // ── Fixed widgets ──────────────────────────────────────
+  #go-up
+    color: $wechat-dark-text-hint
+
+    &:hover
+      color: $wechat-green
+
+  @media screen and (max-width: $sm)
+    #go-up
+      background: rgba($wechat-dark-bg-card, 0.95)
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35)
+
+  .dark-mode-toggle
+    border: none
+    background: transparent
+    cursor: pointer
+
+    &:hover
+      opacity: 0.85

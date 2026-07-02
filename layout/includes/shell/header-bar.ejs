@@ -1,0 +1,56 @@
+<header id="page-header"<% if (typeof coverHeader !== 'undefined' && coverHeader) { %> class="moments-profile-header"<% } %>>
+  <span class="header-brand">
+    <a id="site-name" href="<%- url_for('/') %>"><%= config.title %></a>
+    <a class="header-brand-avatar" href="<%- url_for('/') %>" aria-label="<%= config.author || config.title %>">
+      <img src="<%- url_for(theme.avatar) %>" alt="<%= config.author || config.title %>">
+    </a>
+  </span>
+  <% if (typeof postTitle !== 'undefined' && postTitle) { %>
+    <span class="header-post-title"><%= postTitle %></span>
+  <% } %>
+  <div class="header-actions">
+    <% if (theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.toggle !== false) { %>
+      <button type="button" id="dark-mode-toggle" class="site-page social-icon dark-mode-toggle" aria-label="<%= _p('dark_mode.toggle') %>" aria-pressed="false">
+        <i class="fa fa-moon-o" aria-hidden="true"></i>
+      </button>
+    <% } %>
+    <% var searchEnabled = (theme.local_search && theme.local_search.enable) || (theme.algolia_search && theme.algolia_search.enable); %>
+    <% if (searchEnabled) { %>
+      <a class="site-page social-icon search search--desktop" href="javascript:void(0);">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <span><%= _p('search') %></span>
+      </a>
+    <% } %>
+    <% if (theme.menu) { %>
+      <nav class="menus mobile-nav-panel" id="mobile-nav-panel" aria-label="<%= __('menu') || 'Menu' %>" aria-hidden="true">
+        <div class="mobile-nav-panel__header">
+          <span class="mobile-nav-panel__title"><%= __('menu') || 'Menu' %></span>
+        </div>
+        <div class="mobile-nav-panel__body">
+          <% Object.keys(theme.menu).forEach(function (label) { %>
+              <% var item = theme.menu[label]; %>
+              <% var url = typeof item === 'object' && item.url ? item.url : item; %>
+              <% var icon = typeof item === 'object' && item.icon ? item.icon : null; %>
+              <% var isExternal = /^https?:\/\//.test(url); %>
+              <a class="site-page<% if (icon) { %> social-icon<% } %>" href="<%- url_for(url) %>"<% if (isExternal) { %> target="_blank" rel="noreferrer noopener"<% } %>>
+                <% if (icon) { %>
+                  <i class="fa fa-<%= icon %>" aria-hidden="true"></i>
+                  <span class="menu-item-label"><%= label %></span>
+                <% } else { %>
+                  <%= label %>
+                <% } %>
+              </a>
+            <% }); %>
+        </div>
+      </nav>
+    <% } %>
+    <button type="button" class="toggle-menu" aria-label="<%= __('menu') || 'Menu' %>" aria-expanded="false" aria-controls="mobile-nav-panel">
+      <span class="toggle-menu__icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+</header>
+<div class="mobile-nav-backdrop" aria-hidden="true"></div>

@@ -1,0 +1,36 @@
+<%
+var analytics = theme.analytics || {};
+var hasAnalytics = (analytics.google && analytics.google.enable && analytics.google.id)
+  || (analytics.baidu && analytics.baidu.enable && analytics.baidu.id)
+  || (analytics.umami && analytics.umami.enable && analytics.umami.website_id && analytics.umami.script)
+  || (analytics.cloudflare && analytics.cloudflare.enable && analytics.cloudflare.token);
+%>
+<% if (hasAnalytics) { %>
+<% if (analytics.google && analytics.google.enable && analytics.google.id) { %>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= analytics.google.id %>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '<%= analytics.google.id %>');
+</script>
+<% } %>
+<% if (analytics.baidu && analytics.baidu.enable && analytics.baidu.id) { %>
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?<%= analytics.baidu.id %>';
+    hm.async = true;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<% } %>
+<% if (analytics.umami && analytics.umami.enable && analytics.umami.website_id && analytics.umami.script) { %>
+<script async defer src="<%= analytics.umami.script %>" data-website-id="<%= analytics.umami.website_id %>"></script>
+<% } %>
+<% if (analytics.cloudflare && analytics.cloudflare.enable && analytics.cloudflare.token) { %>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"<%= analytics.cloudflare.token %>"}'></script>
+<% } %>
+<% } %>

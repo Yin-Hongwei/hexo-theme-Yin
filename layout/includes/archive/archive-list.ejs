@@ -1,0 +1,31 @@
+<div class="archive-panels">
+  <% var year; %>
+  <% var panelOpen = false; %>
+  <% posts.each(function (article) { %>
+    <% var tempYear = date(article.date, 'YYYY'); %>
+    <% if (tempYear !== year) { %>
+      <% if (panelOpen) { %>
+          </div>
+        </section>
+      <% } %>
+      <% year = tempYear; %>
+      <% panelOpen = true; %>
+      <section class="archive-panel">
+        <div class="archive-panel-title"><%= year %></div>
+        <div class="archive-cells">
+    <% } %>
+    <a class="archive-cell" href="<%- url_for(article.path) %>">
+      <span class="archive-cell-main">
+        <span class="archive-cell-title"><%= article.title || '无标题' %></span>
+      </span>
+      <span class="archive-cell-meta">
+        <time datetime="<%= date(article.date, 'YYYY-MM-DD') %>"><%= date(article.date, 'MM-DD') %></time>
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </span>
+    </a>
+  <% }); %>
+  <% if (panelOpen) { %>
+      </div>
+    </section>
+  <% } %>
+</div>

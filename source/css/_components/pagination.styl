@@ -1,0 +1,105 @@
+#pagination {
+  padding: 1rem 0;
+
+  .pagination {
+    text-align: center;
+
+    .page-number, .extend {
+      display: inline-block;
+      background-color: $color-white;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      color: $color-black;
+      height: 1.6rem;
+      width: 1.6rem;
+      line-height: 1.6rem;
+      margin: 0 0.2rem;
+
+      &:hover {
+        background-color: $theme-color-active;
+        color: $color-white;
+        cursor pointer;
+      }
+    }
+
+    .extend {
+      padding: 0 5px;
+    }
+
+    .current {
+      background-color: $theme-color;
+      color: $color-white;
+      cursor: default;
+    }
+  }
+
+  .fa {
+    margin: 0 5px;
+  }
+}
+
+body.moments-home,
+body.moments-archive,
+body.moments-page {
+  #pagination {
+    margin: 0 -1rem;
+    padding: 16px 16px 24px;
+    background: transparent;
+
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+
+      .page-number, .extend {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        height: 36px;
+        width: auto;
+        padding: 0 10px;
+        margin: 0;
+        border-radius: 6px;
+        background: $color-white;
+        color: $wechat-text;
+        font-size: 14px;
+        line-height: 1;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+        transition: background 0.15s ease, color 0.15s ease;
+
+        &:hover {
+          background: rgba($wechat-green, 0.08);
+          color: $wechat-green;
+          cursor: pointer;
+        }
+      }
+
+      .current {
+        background: $wechat-green;
+        color: $color-white;
+        cursor: default;
+
+        &:hover {
+          background: $wechat-green;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $sm) {
+  body.moments-home,
+  body.moments-archive,
+  body.moments-page {
+    #pagination {
+      margin: 0 -0.5rem;
+      padding: 12px 12px 20px;
+    }
+  }
+}

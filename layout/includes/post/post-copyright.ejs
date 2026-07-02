@@ -1,0 +1,88 @@
+<%
+var LICENSES = {
+  'CC-BY-4.0': {
+    name: 'CC BY 4.0',
+    url: 'https://creativecommons.org/licenses/by/4.0/'
+  },
+  'CC-BY-NC-4.0': {
+    name: 'CC BY-NC 4.0',
+    url: 'https://creativecommons.org/licenses/by-nc/4.0/'
+  },
+  'CC-BY-NC-SA-4.0': {
+    name: 'CC BY-NC-SA 4.0',
+    url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/'
+  },
+  'CC-BY-SA-4.0': {
+    name: 'CC BY-SA 4.0',
+    url: 'https://creativecommons.org/licenses/by-sa/4.0/'
+  },
+  'All-Rights-Reserved': {
+    name: _p('copyright.all_rights'),
+    url: ''
+  }
+};
+var style = (theme.copyright && theme.copyright.style) || 'license';
+var authorName = theme.copyright.author || config.author;
+var postUrl = theme.copyright.link || (config.url.replace(/\/$/, '') + url_for(page.path));
+var licenseKey = theme.copyright.license || 'CC-BY-NC-SA-4.0';
+var licenseInfo = LICENSES[licenseKey] || LICENSES['CC-BY-NC-SA-4.0'];
+var updatedAt = page.updated && page.updated.toDate && page.updated.toDate().getTime() !== page.date.toDate().getTime() ? page.updated : null;
+%>
+<% if (theme.copyright && theme.copyright.enable) { %>
+  <% if (style === 'wechat') { %>
+    <section class="post-copyright post-copyright--wechat">
+      <ul class="post-copyright__list">
+        <li>
+          <span class="post-copyright__label"><%= _p('copyright.author') %>：</span>
+          <span class="post-copyright__value"><%= authorName %></span>
+        </li>
+        <li>
+          <span class="post-copyright__label"><%= _p('copyright.link') %>：</span>
+          <a class="post-copyright__value post-copyright__link" href="<%= postUrl %>"><%= postUrl %></a>
+        </li>
+        <li>
+          <span class="post-copyright__label"><%= _p('copyright.license') %>：</span>
+          <% if (licenseInfo.url) { %>
+            <a class="post-copyright__value post-copyright__link" href="<%= licenseInfo.url %>" target="_blank" rel="noopener noreferrer"><%= licenseInfo.name %></a>
+          <% } else { %>
+            <span class="post-copyright__value"><%= licenseInfo.name %></span>
+          <% } %>
+        </li>
+      </ul>
+      <% if (theme.copyright.content) { %>
+        <p class="post-copyright__note"><%= theme.copyright.content %></p>
+      <% } %>
+    </section>
+  <% } else { %>
+    <section class="post-copyright">
+      <p class="post-copyright__title"><%= _p('copyright.license') %></p>
+      <ul class="post-copyright__list">
+        <li>
+          <span class="post-copyright__label"><%= _p('copyright.author') %>：</span>
+          <span class="post-copyright__value"><%= authorName %></span>
+        </li>
+        <li>
+          <span class="post-copyright__label"><%= _p('copyright.link') %>：</span>
+          <a class="post-copyright__value post-copyright__link" href="<%= postUrl %>"><%= postUrl %></a>
+        </li>
+        <% if (updatedAt) { %>
+          <li>
+            <span class="post-copyright__label"><%= _p('copyright.updated') %>：</span>
+            <time class="post-copyright__value"><%= date(updatedAt, config.date_format) %></time>
+          </li>
+        <% } %>
+        <li>
+          <span class="post-copyright__label"><%= _p('copyright.license') %>：</span>
+          <% if (licenseInfo.url) { %>
+            <a class="post-copyright__value post-copyright__link" href="<%= licenseInfo.url %>" target="_blank" rel="noopener noreferrer"><%= licenseInfo.name %></a>
+          <% } else { %>
+            <span class="post-copyright__value"><%= licenseInfo.name %></span>
+          <% } %>
+        </li>
+      </ul>
+      <% if (theme.copyright.content) { %>
+        <p class="post-copyright__note"><%= theme.copyright.content %></p>
+      <% } %>
+    </section>
+  <% } %>
+<% } %>

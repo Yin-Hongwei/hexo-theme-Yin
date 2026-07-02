@@ -1,0 +1,108 @@
+<% var socialLabels = {
+  'envelope-o': '邮箱',
+  'github': 'GitHub',
+  'weibo': '微博',
+  'twitter': 'Twitter',
+  'facebook': 'Facebook',
+  'instagram': 'Instagram',
+  'linkedin': 'LinkedIn'
+}; %>
+<% var contentHtml = page.content || ''; %>
+<% var normalizePhoto = function (src) {
+  if (!src) return '';
+  if (src.indexOf('../') === 0) return src.replace(/^\.\.\//, '/');
+  return src;
+}; %>
+<% var aboutPhotos = []; %>
+<% if (page.photos && page.photos.length) {
+  aboutPhotos = page.photos.map(normalizePhoto).filter(Boolean);
+} else if (page.photo) {
+  aboutPhotos = [normalizePhoto(page.photo)];
+} else {
+  var photoRegex = /<img[^>]+src=["']([^"']+)["'][^>]*>/gi;
+  var photoMatch;
+  while ((photoMatch = photoRegex.exec(contentHtml)) !== null) {
+    aboutPhotos.push(normalizePhoto(photoMatch[1]));
+  }
+} %>
+<% var signatureHtml = contentHtml
+  .replace(/<p>\s*<img[^>]*>\s*<\/p>/gi, '')
+  .replace(/<img[^>]*>/gi, '')
+  .trim(); %>
+<% var photoCount = aboutPhotos.length; %>
+<article id="about" class="moments-about-content">
+  <% if (signatureHtml) { %>
+    <section class="about-signature-strip" aria-label="个性签名">
+      <div class="about-signature-inner">
+        <div class="about-signature"><%- signatureHtml %></div>
+      </div>
+    </section>
+  <% } %>
+  <div class="about-panels">
+    <% if (config.description) { %>
+      <section class="about-panel about-desc-panel" aria-label="站点简介">
+        <div class="about-desc-cell">
+          <div class="about-desc-head">
+            <span class="about-desc-icon" aria-hidden="true">
+              <i class="fa fa-quote-left"></i>
+            </span>
+            <span class="about-desc-label">简介</span>
+          </div>
+          <p class="about-desc-text"><%= config.description %></p>
+        </div>
+      </section>
+    <% } %>
+    <% if (photoCount > 0) { %>
+      <section class="about-panel about-photo-panel" aria-label="相册">
+        <div class="about-panel-title">
+          相册<% if (photoCount > 1) { %><span class="about-panel-count"><%= photoCount %></span><% } %>
+        </div>
+        <div class="about-photo-grid" data-count="<%= photoCount %>">
+          <% aboutPhotos.forEach(function (photo, idx) { %>
+            <div class="about-photo-cell">
+              <a class="about-photo-link fancybox" href="<%- url_for(photo) %>" data-fancybox="about" data-caption="<%= config.author %>">
+                <img src="<%- url_for(photo) %>" alt="<%= config.author %>" loading="lazy">
+              </a>
+            </div>
+          <% }); %>
+        </div>
+      </section>
+    <% } %>
+    <% if (theme.social) { %>
+      <% var socialItems = Object.keys(theme.social).filter(function (icon) { return theme.social[icon]; }); %>
+      <% if (socialItems.length > 0) { %>
+        <section class="about-panel" aria-label="联系方式">
+          <div class="about-panel-title">联系方式</div>
+          <div class="about-cells">
+            <% socialItems.forEach(function (icon) { %>
+              <% var url = theme.social[icon]; %>
+              <% var label = socialLabels[icon] || icon; %>
+              <% if (icon === 'envelope-o') { %>
+                <div class="about-cell about-cell-static">
+                  <span class="about-cell-label">
+                    <i class="fa fa-<%= icon %>" aria-hidden="true"></i>
+                    <%= label %>
+                  </span>
+                  <span class="about-cell-value">
+                    <span class="about-cell-copy-text"><%= url %></span>
+                  </span>
+                </div>
+              <% } else { %>
+                <a class="about-cell" href="<%= url %>" target="_blank" rel="noreferrer noopener nofollow">
+                  <span class="about-cell-label">
+                    <i class="fa fa-<%= icon %>" aria-hidden="true"></i>
+                    <%= label %>
+                  </span>
+                  <span class="about-cell-value">
+                    <span class="about-cell-link-text">访问</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </span>
+                </a>
+              <% } %>
+            <% }); %>
+          </div>
+        </section>
+      <% } %>
+    <% } %>
+  </div>
+</article>

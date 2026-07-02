@@ -1,0 +1,17 @@
+<% var cover_img = theme.home.cover_img || ''; %>
+<% var cover_style = cover_img ? 'background-image: url(' + url_for(cover_img) + ')' : ''; %>
+<div class="moments-profile" id="nav">
+  <div class="moments-cover" style="<%= cover_style %>">
+    <div class="moments-cover-content">
+      <%- partial('includes/shell/header-bar', { coverHeader: true }) %>
+    </div>
+  </div>
+  <div class="moments-profile-bottom">
+    <div class="moments-profile-bottom-inner">
+      <div class="moments-profile-name"><%= config.title %></div>
+      <a class="moments-profile-avatar" href="<%- url_for('/about') %>" aria-label="<%= config.author %>">
+        <img src="<%- url_for(theme.avatar) %>" alt="<%= config.author %>">
+      </a>
+    </div>
+  </div>
+</div>

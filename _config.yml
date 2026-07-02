@@ -1,34 +1,160 @@
-# html lang
+# ---------- General ----------
 language: en
 
-# main menu navigation
+# ---------- Navigation ----------
 menu:
-  关于: /about
-  存档: /archives
-  标签: /tags
+  # Home: /
+  # Archives: /archives
+  # About: /about
+  # Tags: /tags
 
-# cdn
+# ---------- Search ----------
+local_search:
+  enable: false
+
+algolia_search:
+  enable: false
+  app_id: ''
+  api_key: ''
+  index_name: ''
+  hits_per_page: 10
+
+# ---------- Site Identity ----------
+avatar: /img/avatar.jpg
+avatar_icon: /img/favicon.ico
+
+social:
+  envelope-o: ''
+  github: ''
+  weibo: ''
+
+# ---------- Homepage ----------
+home:
+  cover_img: /img/bg.jpg
+
+# ---------- Post ----------
+post:
+  top_img_height: 35
+  top_img_position: center 120%
+
+post_meta:
+  date_type: created
+  categories: true
+  tags: false
+
+sidebar:
+  catalog: Table of Contents
+  # all | index | post | index-none | post-none | hidden
+  display: post
+
+toc:
+  enable: true
+
+# ---------- Footer ----------
+footer:
+  startTime: ''
+  theme_url: https://github.com/Yin-Hongwei/hexo-theme-Yin
+  theme_name: hexo-theme-Yin
+
+# busuanzi count for PV / UV in site
+busuanzi:
+  enable: false
+  site_uv: true
+  site_uv_header: <i class="fa fa-user"></i>
+  site_uv_footer:
+  site_pv: true
+  site_pv_header: <i class="fa fa-eye"></i>
+  site_pv_footer:
+  page_pv: true
+  page_pv_header: <i class="fa fa-file"></i>
+  page_pv_footer:
+
+# ---------- Features ----------
+comments:
+  gitalk:
+    enable: false
+    id: ''
+    owner: ''
+    admin: ''
+    repo: ''
+    client_id: ''
+    client_secret: ''
+
+reward:
+  enable: false
+  alipay: ''
+
+# ---------- Reading experience ----------
+lazyload:
+  enable: true
+
+dark_mode:
+  enable: true
+  toggle: true
+  # light | dark | auto
+  default: auto
+
+copyright:
+  enable: false
+  # license | wechat
+  style: license
+  license: CC-BY-NC-SA-4.0
+  author: ''
+  link: ''
+  content: ''
+
+# ---------- SEO ----------
+seo:
+  enable: true
+  canonical: true
+  open_graph: true
+  twitter_card: true
+  json_ld: true
+  robots: index,follow
+  og_image: ''
+  twitter_site: ''
+  rss: atom.xml
+  google_site_verification: ''
+  baidu_site_verification: ''
+
+# ---------- Analytics ----------
+analytics:
+  google:
+    enable: false
+    id: ''
+  baidu:
+    enable: false
+    id: ''
+  umami:
+    enable: false
+    website_id: ''
+    script: ''
+  cloudflare:
+    enable: false
+    token: ''
+
+# ---------- Assets ----------
 cdn:
   css:
     fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
   js:
-    jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
-    anime: https://cdn.bootcss.com/animejs/2.2.0/anime.min.js
+    jquery: https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+    anime: https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js
     velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
     velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js
-    fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
+    fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
 
-
-# stylesheets loaded in the <head>
 stylesheets:
-  - /css/style.css
+  - /css/index.css
 
-# scripts loaded in the end of the body
 scripts:
-- /js/main.js
-
-# SNS
-social:
-  envelope-o: yinhongwei96@126.com
-  github: https://github.com/Yin-Hongwei
-  weibo: 
+  - /js/utils.js
+  - /js/transition.js
+  - /js/moments-grid.js
+  - /js/fancybox.js
+  - /js/menu.js
+  - /js/sidebar.js
+  - /js/scroll.js
+  - /js/copy.js
+  - /js/lazyload.js
+  - /js/dark-mode.js

@@ -1,0 +1,107 @@
+// WeChat-style article tables (posts & static pages)
+// Exclude syntax-highlight internal tables (figure.highlight) and gist embeds
+wechat-article-table()
+  table:not(figure.highlight table):not(.gist table)
+    width: 100%
+    margin: 1.25em 0
+    border-collapse: separate
+    border-spacing: 0
+    font-size: 0.9375em
+    line-height: 1.65
+    background: $color-white
+    border: 1px solid $wechat-divider
+    border-radius: 8px
+    overflow: hidden
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04)
+
+    th, td
+      padding: 11px 14px
+      border-bottom: 1px solid $wechat-divider
+      text-align: left
+      vertical-align: middle
+      word-break: break-word
+
+    th + th,
+    td + td
+      border-left: 1px solid rgba($wechat-divider, 0.65)
+
+    thead th
+      background: $wechat-bg
+      color: $color-black-dark
+      font-weight: 600
+      font-size: 0.875em
+      letter-spacing: 0.03em
+      border-bottom: 1px solid darken($wechat-divider, 4%)
+      white-space: nowrap
+
+    tbody tr:last-child td
+      border-bottom: none
+
+    tbody tr:nth-child(even) td
+      background: rgba($wechat-bg, 0.55)
+
+    tbody tr:hover td
+      background: rgba($wechat-green-light, 0.45)
+      transition: background 0.15s ease
+
+    td code, th code
+      display: inline-block
+      padding: 0.15em 0.45em
+      border-radius: 4px
+      background: rgba(0, 0, 0, 0.05)
+      font-family: $code-font
+      font-size: 0.92em
+      color: $color-black-light
+      white-space: nowrap
+
+    th[align="center"],
+    td[align="center"]
+      text-align: center
+
+    @media screen and (max-width: $sm)
+      display: block
+      overflow-x: auto
+      -webkit-overflow-scrolling: touch
+      font-size: 0.8125em
+
+      th, td
+        padding: 9px 11px
+
+      thead th
+        white-space: normal
+
+wechat-article-table-dark()
+  table:not(figure.highlight table):not(.gist table)
+    background: $wechat-dark-bg-card
+    border-color: $wechat-dark-divider
+    box-shadow: none
+
+    th, td
+      border-color: $wechat-dark-divider
+      color: $wechat-dark-text
+
+    th + th,
+    td + td
+      border-left-color: $wechat-dark-divider
+
+    thead th
+      background: $wechat-dark-bg-elevated
+      color: $wechat-dark-text
+      border-bottom-color: $wechat-dark-divider
+
+    tbody tr:nth-child(even) td
+      background: rgba(255, 255, 255, 0.03)
+
+    tbody tr:hover td
+      background: $wechat-dark-fill-hover
+
+    td code, th code
+      background: rgba(255, 255, 255, 0.08)
+      color: $wechat-dark-text
+
+html[data-theme="dark"]
+  #post #post-content
+    wechat-article-table-dark()
+
+  #post-content.article-container
+    wechat-article-table-dark()

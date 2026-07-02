@@ -1,0 +1,63 @@
+<div id="recent-posts" class="moments-feed">
+  <% page.posts.each(function (article) { %>
+    <% var link = article.link || article.path; %>
+    <div class="moments-item">
+      <a class="moments-avatar" href="<%- url_for('/about') %>" aria-hidden="true" tabindex="-1">
+        <img src="<%- url_for(theme.avatar) %>" alt="<%= config.author %>">
+      </a>
+      <div class="moments-body">
+        <div class="moments-header">
+          <a class="moments-name" href="<%- url_for('/about') %>"><%= config.author %></a>
+          <% if (article.top) { %>
+            <span class="moments-sticky">置顶</span>
+          <% } %>
+        </div>
+        <div class="moments-content">
+          <a class="moments-title" href="<%- url_for(link) %>"><%= article.title || '无标题' %></a>
+          <% if (article.excerpt) { %>
+            <div class="content"><%- article.excerpt %></div>
+            <a class="moments-more" href="<%- url_for(link) %>">全文</a>
+          <% } else if (theme.auto_excerpt && theme.auto_excerpt.enable) { %>
+            <% const content = strip_html(article.content); %>
+            <% let expert = content.substring(0, theme.auto_excerpt.length); %>
+            <% if (content.length > theme.auto_excerpt.length) expert += ' ...'; %>
+            <div class="content"><%- expert %></div>
+            <% if (content.length > theme.auto_excerpt.length) { %>
+              <a class="moments-more" href="<%- url_for(link) %>">全文</a>
+            <% } %>
+          <% } else { %>
+            <div class="content"><%- article.content %></div>
+          <% } %>
+        </div>
+        <div class="moments-footer">
+          <div class="moments-meta">
+            <% if (theme.post_meta && theme.post_meta.date_type) { %>
+              <% var date_type = theme.post_meta.date_type == 'updated' ? 'updated' : 'date'; %>
+              <time class="post-meta__date"><%= date(article[date_type], config.date_format) %></time>
+            <% } %>
+            <% if (theme.post_meta && theme.post_meta.tags && article.tags.data.length > 0) { %>
+              <% article.tags.data.forEach(function (item, index) { %>
+                <% if (index > 0) { %>
+                  <span class="moments-meta__sep">·</span>
+                <% } %>
+                <a class="moments-tag" href="<%- url_for(item.path) %>"><%= item.name %></a>
+              <% }); %>
+            <% } %>
+          </div>
+          <div class="moments-actions">
+            <button class="moments-action-btn" type="button" aria-label="操作">
+              <span class="moments-action-dot"></span>
+              <span class="moments-action-dot"></span>
+            </button>
+            <div class="moments-action-menu">
+              <a class="moments-action-item" href="<%- url_for(link) %>">阅读全文</a>
+              <% if (theme.post_meta && theme.post_meta.tags && article.tags.data.length > 0) { %>
+                <a class="moments-action-item" href="<%- url_for(article.tags.data[0].path) %>">查看标签</a>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% }); %>
+</div>

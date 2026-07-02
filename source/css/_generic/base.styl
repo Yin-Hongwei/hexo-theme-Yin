@@ -1,0 +1,54 @@
+// Reset, typography & helpers
+html
+  font-size: $rem
+
+html, body
+  height: 100%
+
+body
+  margin: 0
+  padding: 0
+  position: relative
+  display: flex
+  flex-direction: column
+  min-height: 100%
+  background-color: $theme-body-color
+  color: $color-black-light
+  font-size: $font-size
+  font-family: $font-family
+  line-height: $text-line-height
+  -webkit-text-size-adjust: 100%
+
+h1, h2, h3, h4, h5, h6, p, div
+  margin: 0
+
+*
+  box-sizing: border-box
+
+a
+  text-decoration: none
+  color: $color-black-light
+
+  img, video
+    max-width: 100%
+    height: auto
+    display: block
+    margin: auto
+    padding: $img-border-padding
+    border: 1px solid $img-border-color
+    transition: all 0.2s
+
+table
+  overflow: auto
+  width: 100%
+  border-spacing: 0
+  border-collapse: collapse
+
+.left, .alignleft
+  float: left
+
+.right, .alignright
+  float: right
+
+.clear
+  clear: both

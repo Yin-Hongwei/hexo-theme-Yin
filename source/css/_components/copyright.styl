@@ -1,0 +1,61 @@
+// Post copyright notice
+.post-copyright
+  margin-top: 2rem
+  padding: 1rem 1.1rem
+  border: 1px solid $wechat-divider
+  border-radius: 8px
+  background: $wechat-bg
+  color: $wechat-text-muted
+  font-size: 13px
+  line-height: 1.7
+
+  &__title
+    margin: 0 0 0.65rem
+    color: $wechat-text
+    font-size: 14px
+    font-weight: 600
+
+  &__list
+    margin: 0
+    padding: 0
+    list-style: none
+
+  &__list li + li
+    margin-top: 0.25rem
+
+  &__label
+    color: $wechat-text-hint
+
+  &__value
+    color: $wechat-text
+    word-break: break-all
+
+  &__link
+    color: $wechat-link
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
+
+  &__note
+    margin: 0.75rem 0 0
+    padding-top: 0.75rem
+    border-top: 1px dashed $wechat-divider
+    color: $wechat-text-hint
+
+  &--wechat
+    .post-copyright__note
+      margin-top: 0.85rem
+      font-size: 12px
+      line-height: 1.8
+
+#post .post-copyright__list
+  margin: 0
+  padding: 0
+  list-style: none
+
+  li
+    list-style: none
+
+    & + li
+      margin-top: 0.25rem

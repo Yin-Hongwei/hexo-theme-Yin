@@ -1,0 +1,149 @@
+// WeChat-style header bar (solid/frosted bg + dark text)
+wechat-header-bar($solid = false)
+  background: $solid ? $header-bar-bg-solid : $header-bar-bg
+  border-bottom: 1px solid $header-bar-border
+  box-shadow: none
+
+  if !$solid
+    backdrop-filter: saturate(180%) blur(12px)
+    -webkit-backdrop-filter: saturate(180%) blur(12px)
+  else
+    backdrop-filter: none
+    -webkit-backdrop-filter: none
+
+  #site-name,
+  a,
+  .toggle-menu,
+  .dark-mode-toggle
+    color: $header-bar-text
+    font-weight: 500
+    -webkit-font-smoothing: antialiased
+
+    &:hover
+      color: $header-bar-text-hover
+      opacity: 1
+
+  .site-page::after
+    background-color: $header-bar-text-hover
+
+wechat-header-bar-text()
+  #site-name,
+  a,
+  .toggle-menu,
+  .dark-mode-toggle
+    color: $header-bar-text
+    font-weight: 500
+    -webkit-font-smoothing: antialiased
+    transition: none
+
+    &:hover
+      color: $header-bar-text-hover
+      opacity: 1
+
+  .site-page::after
+    background-color: $header-bar-text-hover
+
+wechat-header-bar-text-dark()
+  #site-name,
+  a,
+  .toggle-menu,
+  .dark-mode-toggle
+    color: $wechat-dark-text
+    font-weight: 500
+    transition: none
+
+    &:hover
+      color: $wechat-green
+      opacity: 1
+
+  .site-page::after
+    background-color: $wechat-green
+
+// Transparent header over cover (relies on top gradient scrim for contrast)
+cover-header-bar()
+  background: transparent
+  border-bottom: 1px solid transparent
+  box-shadow: none
+  backdrop-filter: none
+  -webkit-backdrop-filter: none
+
+  #site-name,
+  a,
+  .toggle-menu,
+  .dark-mode-toggle
+    color: $color-white
+    font-weight: 500
+    -webkit-font-smoothing: antialiased
+    transition: none
+
+    &:hover
+      color: rgba($color-white, 0.82)
+      opacity: 1
+
+  .site-page::after
+    background-color: rgba($color-white, 0.85)
+
+// Top gradient on cover images so transparent header text stays readable
+cover-top-scrim()
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    z-index: 1
+    height: ($header-height + 48px)
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.18) 55%, transparent 100%)
+    pointer-events: none
+
+wechat-header-bar-dark($solid = false)
+  background: $solid ? $header-bar-dark-bg-solid : $header-bar-dark-bg
+  border-bottom: 1px solid $wechat-dark-divider
+  box-shadow: none
+
+  if !$solid
+    backdrop-filter: saturate(180%) blur(12px)
+    -webkit-backdrop-filter: saturate(180%) blur(12px)
+  else
+    backdrop-filter: none
+    -webkit-backdrop-filter: none
+
+  #site-name,
+  a,
+  .toggle-menu,
+  .dark-mode-toggle
+    color: $wechat-dark-text
+    font-weight: 500
+
+    &:hover
+      color: $wechat-green
+      opacity: 1
+
+  .site-page::after
+    background-color: $wechat-green
+
+cover-header-bar-dark()
+  background: transparent
+  border-bottom: 1px solid transparent
+  box-shadow: none
+  backdrop-filter: none
+  -webkit-backdrop-filter: none
+
+  #site-name,
+  a,
+  .toggle-menu,
+  .dark-mode-toggle
+    color: rgba($color-white, 0.92)
+    font-weight: 500
+    transition: none
+
+    &:hover
+      color: $color-white
+      opacity: 1
+
+  .site-page::after
+    background-color: rgba($color-white, 0.85)
+
+cover-top-scrim-dark()
+  &::before
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.28) 55%, transparent 100%)

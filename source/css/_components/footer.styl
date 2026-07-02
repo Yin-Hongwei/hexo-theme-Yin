@@ -1,0 +1,42 @@
+// Footer (WeChat style)
+#footer-outer {
+  background-color: $wechat-bg;
+  border-top: 1px solid $wechat-divider;
+  padding: 1rem;
+  color: $wechat-text-hint;
+  font-size: 12px;
+  line-height: 1.4;
+
+  .footer-text {
+    text-align: center;
+    margin: 0;
+
+    + .footer-text {
+      margin-top: 0.25rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .busuanzi {
+    text-align: center;
+    margin-top: 0.25rem;
+  }
+
+  .footer-separator {
+    margin: 0 0.2rem;
+  }
+
+  #busuanzi_value_site_uv,
+  #busuanzi_value_site_pv,
+  #busuanzi_value_page_pv {
+    margin-left: 0.2rem;
+  }
+}

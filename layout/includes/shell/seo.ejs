@@ -1,0 +1,115 @@
+<% if (theme.seo && theme.seo.enable) { %>
+<%
+var seo = theme.seo;
+var seoTitle = page.title || config.subtitle || '';
+if (is_archive()) seoTitle = _p('page.archives');
+if (is_tag()) seoTitle = _p('page.tag') + ': ' + page.tag;
+if (is_category()) seoTitle = _p('page.category') + ': ' + page.category;
+if (is_month()) seoTitle += ': ' + page.month + '/' + page.year;
+if (is_year()) seoTitle += ': ' + page.year;
+seoTitle ? seoTitle += ' | ' + config.title : seoTitle = config.title;
+
+var seoDescription = page.description || page.title || config.description || '';
+var ogType = seo_type();
+var canonical = seo.canonical !== false ? canonical_url() : '';
+var ogImage = seo_image();
+var siteName = config.title;
+var locale = (config.language || 'en').replace('-', '_');
+%>
+<% if (seo.robots) { %>
+<meta name="robots" content="<%= seo.robots %>">
+<% } %>
+<% if (canonical) { %>
+<link rel="canonical" href="<%= canonical %>">
+<% } %>
+<% if (seo.rss) { %>
+<link rel="alternate" type="application/rss+xml" title="<%= config.title %> RSS" href="<%- url_for(seo.rss) %>">
+<% } %>
+<% if (seo.google_site_verification) { %>
+<meta name="google-site-verification" content="<%= seo.google_site_verification %>">
+<% } %>
+<% if (seo.baidu_site_verification) { %>
+<meta name="baidu-site-verification" content="<%= seo.baidu_site_verification %>">
+<% } %>
+<% if (seo.open_graph !== false) { %>
+<meta property="og:locale" content="<%= locale %>">
+<meta property="og:site_name" content="<%= siteName %>">
+<meta property="og:type" content="<%= ogType %>">
+<meta property="og:title" content="<%= seoTitle %>">
+<meta property="og:description" content="<%= seoDescription %>">
+<meta property="og:url" content="<%= canonical || full_url('/') %>">
+<meta property="og:image" content="<%= ogImage %>">
+<% if (is_post()) { %>
+<meta property="article:author" content="<%= config.author %>">
+<meta property="article:published_time" content="<%= iso_date(page.date) %>">
+<% if (page.updated) { %>
+<meta property="article:modified_time" content="<%= iso_date(page.updated) %>">
+<% } %>
+<% if (page.tags && page.tags.data && page.tags.data.length) { %>
+<% page.tags.data.forEach(function (tag) { %>
+<meta property="article:tag" content="<%= tag.name %>">
+<% }); %>
+<% } %>
+<% } %>
+<% } %>
+<% if (seo.twitter_card !== false) { %>
+<meta name="twitter:card" content="summary_large_image">
+<% if (seo.twitter_site) { %>
+<meta name="twitter:site" content="<%= seo.twitter_site %>">
+<% } %>
+<meta name="twitter:title" content="<%= seoTitle %>">
+<meta name="twitter:description" content="<%= seoDescription %>">
+<meta name="twitter:image" content="<%= ogImage %>">
+<% } %>
+<% if (seo.json_ld !== false) { %>
+<script type="application/ld+json">
+<% if (is_post()) { %>
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": <%- JSON.stringify(page.title || '') %>,
+  "description": <%- JSON.stringify(seoDescription) %>,
+  "image": [<%= JSON.stringify(ogImage) %>],
+  "datePublished": <%- JSON.stringify(iso_date(page.date)) %>,
+  "dateModified": <%- JSON.stringify(iso_date(page.updated || page.date)) %>,
+  "author": {
+    "@type": "Person",
+    "name": <%- JSON.stringify(config.author) %>
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": <%- JSON.stringify(config.title) %>,
+    "logo": {
+      "@type": "ImageObject",
+      "url": <%- JSON.stringify(abs_url(theme.avatar)) %>
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": <%- JSON.stringify(canonical || full_url(page.path)) %>
+  }
+}
+<% } else if (is_home()) { %>
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": <%- JSON.stringify(config.title) %>,
+  "description": <%- JSON.stringify(config.description || '') %>,
+  "url": <%- JSON.stringify(full_url('/')) %>,
+  "author": {
+    "@type": "Person",
+    "name": <%- JSON.stringify(config.author) %>
+  }
+}
+<% } else { %>
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": <%- JSON.stringify(page.title || config.title) %>,
+  "description": <%- JSON.stringify(seoDescription) %>,
+  "url": <%- JSON.stringify(canonical || full_url(page.path || '/')) %>
+}
+<% } %>
+</script>
+<% } %>
+<% } %>

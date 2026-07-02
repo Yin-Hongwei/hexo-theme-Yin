@@ -1,0 +1,32 @@
+page:
+  archives: Archives
+  tag: Tag
+  category: Category
+
+search: Search
+menu: Menu
+local_search:
+  label: Search
+  input_placeholder: Search articles
+  hint: Type keywords to search
+  hits_empty: "We didn't find any results for the search: ${query}"
+  powered_by: Powered by
+
+algolia_search:
+  label: Search
+  input_placeholder: Search articles
+  hint: Type keywords to search
+  hits_empty: "We didn't find any results for the search: ${query}"
+  powered_by: Powered by Algolia
+
+dark_mode:
+  toggle: Toggle dark mode
+  light: Light
+  dark: Dark
+
+copyright:
+  author: Author
+  link: Link
+  license: License
+  updated: Last updated
+  all_rights: All rights reserved. Please cite the source when reposting.

@@ -1,0 +1,325 @@
+$base-style {
+  h1 {
+    font-size: 2em;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $color-border;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  h4 {
+    font-size: 1.2em;
+  }
+
+  h5 {
+    font-size: 1em;
+  }
+
+  h6 {
+    font-size: 1em;
+    color: $color-grey-dark !important;
+  }
+
+  hr {
+    border: 1px solid $color-border;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em, cite {
+    font-style: italic;
+  }
+
+  sup, sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  sub {
+    bottom: -0.2em;
+  }
+
+  small {
+    font-size: 0.85em;
+  }
+
+  acronym, abbr {
+    border-bottom: 1px dotted;
+  }
+
+  ul, ol, dl {
+    margin: 0.4rem 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul, ol {
+    ul, ol {
+      margin-top: 0.35em;
+      margin-bottom: 0;
+    }
+  }
+
+  ul ul, ol ul {
+    padding-left: 0.75em;
+  }
+
+  ol {
+    list-style: decimal;
+    padding-left: 1.25em;
+  }
+
+  li + li {
+    margin-top: 0.35em;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+}
+
+body.post-page
+  #content-inner.layout
+    width: 100%
+    max-width: $content-large-width
+    padding: 0 1.5rem
+
+  @media screen and (max-width: $sm)
+    #content-inner.layout
+      padding: 0 0.75rem
+
+    #post
+      padding: 1rem 0.75rem 2rem
+
+      .post-title
+        font-size: 1.5rem
+        margin-bottom: 1rem
+        padding-bottom: 12px
+
+  @media screen and (min-width: ($bg + 1px))
+    &:has(#sidebar.is-open)
+      #content-inner.layout
+        max-width: none
+        padding: 0 2.5rem 0 2rem
+
+      #post
+        max-width: $content-large-width
+        margin: 0 auto
+
+  @media screen and (min-width: $sm)
+    #post
+      width: 100%
+
+  @media screen and (min-width: $sm) and (max-width: $bg)
+    #content-inner.layout
+      width: 92%
+
+  @media screen and (max-width: $bg)
+    #post
+      width: 100%
+
+#post {
+  @extend $base-style;
+  clearfix();
+  margin: auto;
+  padding-top: $header-height;
+
+  .post-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $color-black-dark;
+    line-height: $line-height-title;
+    margin: 0 0 1.5rem;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $color-border;
+    cursor: default;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: $color-black-dark;
+    line-height: $line-height-title;
+    margin: $line-height-title 0;
+    cursor: pointer
+  }
+
+  h1 {
+    margin-top: 1.6em;
+  }
+
+  a {
+    color: $color-blue;
+
+    &:hover {
+      color: $color-blue-dark;
+    }
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 5px auto;
+    border-radius: 5px;
+  }
+
+  iframe {
+    border: none;
+  }
+
+  blockquote {
+    margin: 5px 0;
+    border-left: 0.25em solid $color-grey;
+    color: #6a737d;
+    padding: 0 1em;
+  }
+
+  .pullquote {
+    text-align: left;
+    width: 45%;
+    margin: 0;
+
+    &.left {
+      margin-left: 0.5em;
+      margin-right: 1em;
+    }
+
+    &.right {
+      margin-right: 0.5em;
+      margin-left: 1em;
+    }
+  }
+
+  .caption {
+    color: $color-grey;
+    display: block;
+    font-size: 0.9em;
+    margin-top: 0.5em;
+    position: relative;
+    text-align: center;
+  }
+
+  .video-container {
+    position: relative;
+    padding-top: (9 / 16 * 100)%; // 16:9 ratio
+    height: 0;
+    overflow: hidden;
+
+    iframe, object, embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin-top: 0;
+    }
+  }
+
+  .post-gallery-section {
+    margin-top: 0.5rem;
+
+    h2 {
+      margin: 2rem 0 0.75rem;
+      padding-bottom: 0;
+      font-size: 1.15rem;
+      color: $color-grey-dark;
+    }
+
+    h2:first-of-type {
+      margin-top: 1.25rem;
+    }
+
+    .img-alt {
+      display: none;
+    }
+  }
+
+  .post-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 0.25rem;
+
+    p:has(img) {
+      margin: 0;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #ececec;
+    }
+
+    a.fancybox {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: zoom-in;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: #ececec;
+      object-fit: cover;
+    }
+
+    @media screen and (max-width: $sm) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+  }
+
+}
+
+.qr-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 2rem auto 0;
+}
+
+.qrcode-img {
+  width: 10rem;
+}
+
+.qrcode-desc {
+  text-align: center;
+  font-weight: bold;
+}
+
+.post-tags {
+  display: inline-block;
+  margin: 0.4rem;
+  padding: 0 0.5rem;
+  border: 1px solid $color-black-light;
+  border-radius: 0.3rem;
+  background-color: $color-white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: $color-black !important;
+
+  &:hover {
+    background: $color-black-dark;
+    color: $color-white !important;
+  }
+}

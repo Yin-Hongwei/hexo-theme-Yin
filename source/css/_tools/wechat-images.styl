@@ -1,0 +1,135 @@
+// WeChat-style image display (Moments grid, gallery, single images)
+wechat-img-grid($grid-width = 480px)
+  .moments-img-grid
+    display: grid
+    gap: 4px
+    width: $grid-width
+    max-width: 100%
+    margin: 12px 0 0
+
+    &[data-count='1']
+      width: auto
+      max-width: 100%
+
+      .moments-img-cell
+        aspect-ratio: auto
+        border-radius: 6px
+
+        img
+          width: auto
+          max-width: 100%
+          height: auto
+          object-fit: contain
+
+    &[data-count='2'], &[data-count='4']
+      grid-template-columns: repeat(2, 1fr)
+
+    &[data-count='3'], &[data-count='5'], &[data-count='6'], &[data-count='7'], &[data-count='8'], &[data-count='9']
+      grid-template-columns: repeat(3, 1fr)
+
+  .moments-img-cell
+    position: relative
+    aspect-ratio: 1
+    overflow: hidden
+    border-radius: 2px
+    background: rgba(0, 0, 0, 0.04)
+
+    img
+      width: 100%
+      height: 100%
+      margin: 0
+      padding: 0
+      border: none
+      border-radius: 0
+      object-fit: cover
+      transition: opacity 0.15s ease
+
+    a.fancybox
+      display: block
+      width: 100%
+      height: 100%
+      cursor: zoom-in
+
+      &:active img
+        opacity: 0.85
+
+    &.is-hidden
+      display: none
+
+    &.has-more
+      .moments-img-more
+        position: absolute
+        inset: 0
+        display: flex
+        align-items: center
+        justify-content: center
+        background: rgba(0, 0, 0, 0.45)
+        color: $color-white
+        font-size: 22px
+        font-weight: 500
+        pointer-events: none
+
+wechat-post-gallery()
+  .post-gallery-section
+    margin-top: 0.5rem
+
+    h2
+      margin: 1.75rem 0 0.75rem
+      padding-bottom: 0
+      font-size: 1.0625em
+      font-weight: 600
+      color: $color-black-dark
+
+    h2:first-of-type
+      margin-top: 0.5rem
+
+    .img-alt
+      display: none
+
+  .post-gallery
+    wechat-img-grid(100%)
+
+    .moments-img-grid
+      width: 100%
+      max-width: 480px
+
+wechat-article-images()
+  p:has(> img), p:has(> a.fancybox > img)
+    margin: 0 0 1.25em
+
+  p:has(> img:only-child), p:has(> a.fancybox:only-child)
+    margin: 12px 0
+
+  > img, > p img, > p video, > figure:not(.highlight) img, > figure:not(.highlight) video, .post-gallery img, .post-gallery video, .moments-img-grid img
+    display: block
+    max-width: 100%
+    height: auto
+    margin: 0
+    padding: 0
+    border: none
+    border-radius: 6px
+    background: rgba(0, 0, 0, 0.03)
+
+  a.fancybox:has(img)
+    display: inline-block
+    max-width: 100%
+    cursor: zoom-in
+
+    &:active img
+      opacity: 0.85
+
+  figure:not(.highlight):has(img)
+    margin: 1.25em 0
+
+    img
+      margin: 0
+
+  figure:not(.highlight) figcaption, .img-alt
+    margin-top: 8px
+    color: $wechat-text-hint
+    font-size: 13px
+    line-height: 1.5
+    text-align: left
+
+  wechat-img-grid()
+  wechat-post-gallery()

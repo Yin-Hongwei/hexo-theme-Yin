@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<head>
+  <%- partial('includes/shell/head') %>
+</head>
+<% var isMomentsHome = is_home(); %>
+<% var isMomentsAbout = typeof page !== 'undefined' && page.type === 'about'; %>
+<% var isMomentsArchive = is_archive(); %>
+<% var isMomentsStaticPage = typeof page !== 'undefined' && is_page() && page.type !== 'about'; %>
+<% var isMomentsLayout = isMomentsHome || isMomentsAbout || isMomentsArchive || isMomentsStaticPage; %>
+<% var bodyClass = isMomentsHome ? 'moments-home' : (isMomentsAbout ? 'moments-about' : (isMomentsArchive ? 'moments-archive' : (isMomentsStaticPage ? 'moments-page' : (is_post() ? 'post-page' : '')))); %>
+<body class="<%= bodyClass %>">
+  <%- partial('includes/shell/header') %>
+  <% if (is_post()) { %>
+    <button type="button" id="toggle-sidebar" class="sidebar-toggle" aria-label="<%= theme.sidebar.catalog || 'Table of Contents' %>" aria-expanded="false">
+      <svg class="sidebar-toggle__chevron" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+        <path d="M10 4 L6 8 L10 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <%- partial('includes/shell/sidebar') %>
+  <% } %>
+  <article id="content-outer">
+    <section id="content-inner" class="layout<%= isMomentsLayout ? ' moments-page' : '' %>">
+      <%- body %>
+    </section>
+  </article>
+  <%- partial('includes/shell/footer') %>
+  <%- partial('includes/shell/search') %>
+  <i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i>
+  <% Object.keys(theme.cdn.js).forEach(function (key) { %>
+    <% var item = theme.cdn.js[key]; %>
+    <% if (item !== undefined) { %>
+      <script src="<%- url_for(item) %>"></script>
+    <% } %>
+  <% }); %>
+  <% var searchEnabled = (theme.local_search && theme.local_search.enable) || (theme.algolia_search && theme.algolia_search.enable); %>
+  <% if (searchEnabled) { %>
+    <script src="<%- url_for('/js/search/search-dialog.js') %>"></script>
+  <% } %>
+  <% if (theme.algolia_search && theme.algolia_search.enable) { %>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+    <script src="<%- url_for('/js/search/algolia-search.js') %>" defer></script>
+  <% } else if (theme.local_search && theme.local_search.enable) { %>
+    <script src="<%- url_for('/js/search/local-search.js') %>" defer></script>
+  <% } %>
+  <% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
+    <% theme.scripts.forEach(function (url) { %>
+      <script src="<%- url_for(url) %>" defer></script>
+    <% }); %>
+  <% } %>
+</body>
+</html>

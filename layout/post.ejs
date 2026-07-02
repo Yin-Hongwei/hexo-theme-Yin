@@ -1,0 +1,8 @@
+<article id="post">
+  <h1 class="post-title"><%= page.title %></h1>
+  <div id="post-content" class="article-container"><%- page.content %></div>
+  <%- partial('includes/post/post-copyright') %>
+  <%- partial('includes/post/post-reward') %>
+  <%- partial('includes/shared/pagination') %>
+  <%- partial('includes/post/comments-gitalk') %>
+</article>

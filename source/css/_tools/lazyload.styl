@@ -1,0 +1,17 @@
+// Lazy-loaded images
+img.lazy-img:not(.lazy-img--loaded)
+  background-color: rgba(0, 0, 0, 0.04)
+  transition: background-color 0.35s ease
+
+img.lazy-img.lazy-img--loaded
+  background-color: transparent
+
+img.lazy-img.lazy-img--error
+  background-color: rgba(0, 0, 0, 0.06)
+
+html[data-theme="dark"]
+  img.lazy-img:not(.lazy-img--loaded)
+    background-color: rgba(255, 255, 255, 0.06)
+
+  img.lazy-img.lazy-img--error
+    background-color: rgba(255, 255, 255, 0.08)

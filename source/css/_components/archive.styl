@@ -1,0 +1,131 @@
+// Archive page (WeChat list style)
+.moments-archive-content {
+  padding-bottom: 8px;
+}
+
+.archive-summary {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 16px 0px;
+  color: $wechat-text-hint;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.archive-summary-page {
+  flex-shrink: 0;
+  color: $wechat-text-muted;
+}
+
+.archive-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.archive-panel {
+  background: $color-white;
+}
+
+.archive-panel-title {
+  padding: 14px 16px 6px;
+  color: $wechat-text-hint;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.archive-cells {
+  border-top: 1px solid $wechat-divider;
+
+  .archive-panel:not(:has(.archive-panel-title)) & {
+    border-top: none;
+  }
+}
+
+.archive-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 52px;
+  padding: 12px 16px;
+  border-bottom: 1px solid $wechat-divider;
+  color: $wechat-text;
+  text-decoration: none;
+  transition: background 0.15s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.02);
+
+    .archive-cell-title {
+      color: $wechat-link;
+    }
+  }
+}
+
+.archive-cell-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.archive-cell-title {
+  display: block;
+  overflow: hidden;
+  color: $wechat-text;
+  font-size: 15px;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.archive-cell-meta {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+  color: $wechat-text-muted;
+  font-size: 13px;
+  line-height: 1.4;
+
+  time {
+    color: $wechat-text-muted;
+  }
+
+  .fa-angle-right {
+    color: #c7c7cc;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .archive-summary {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .archive-panel-title {
+    padding: 14px 12px 6px;
+  }
+
+  .archive-cell {
+    min-height: 48px;
+    padding: 10px 12px;
+  }
+
+  .archive-cell-title {
+    font-size: 14px;
+  }
+
+  .archive-cell-meta {
+    font-size: 12px;
+  }
+}
