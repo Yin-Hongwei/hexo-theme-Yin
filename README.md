@@ -1,7 +1,8 @@
-<h1><center>hexo-theme-Yin</center></h1>
+<h1 align="center">hexo-theme-Yin</h1>
+
 ## Screenshots
 
-![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/theme.jpg)
+![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/Yin.png)
 
 <p align="center">
   <a href="https://travis-ci.org/"><img alt="JavaScript Style Guide" src="https://travis-ci.org/Yin-Hongwei/hexo-theme-Yin.svg?branch=master"></a>

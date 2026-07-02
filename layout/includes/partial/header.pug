@@ -1,13 +1,9 @@
-- var top_img = '/img/005.jpg'
-- var bg_img = `background-image: url(${top_img})`
-header#header(style=bg_img)
-  include nav.pug
+header#header
+  nav#navbar
+    span.nav-left
+      a#site-name(href=url_for('/')) #[=config.title]
+    i.fa.fa-bars.toggle-menu.nav-right(aria-hidden="true")
 
-  #site-info
-    #site-title= config.title
-    #site-sub-title= config.subtitle
-    if(theme.social)
-      #site-social-icons
-        each url, icon in theme.social
-         a.social-icon(href=url target="_blank")
-           i(class="fa-" + icon + " fa" )
+    span.nav-right.menus
+      each url, label in theme.menu
+        a.site-page(href=url)= label

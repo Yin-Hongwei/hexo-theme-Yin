@@ -12,7 +12,9 @@
       -moz-transition: all .2s ease-in-out
       -o-transition: all .2s ease-in-out
       -ms-transition: all .2s ease-in-out
-      border: 1px solid $color-border
+      -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
       color: black
       height: 1.6rem
       width: 1.6rem
@@ -21,7 +23,7 @@
       cursor: pointer
 
       &:hover
-        background-color: $color-light-blue
+        background-color: $color-light-black
         color: $color-white
 
     .extend
@@ -29,6 +31,6 @@
       padding: 0 5px
 
     .current
-      background-color: $color-blue
+      background-color: $color-black
       color: $color-white
       cursor: default

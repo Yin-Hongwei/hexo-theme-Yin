@@ -1,3 +1,19 @@
+- var pageTitle = page.title || config.subtitle || ''
+- if (is_archive()) pageTitle = _p('page.archives')
+- if (is_tag()) pageTitle = _p('page.tag') + ': ' + page.tag
+- if (is_category()) pageTitle = _p('page.category') + ': ' + page.category
+- if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
+- if (is_year()) pageTitle += ': ' + page.year
+- pageTitle ? pageTitle += ' | ' + config.title : pageTitle = config.title
+
+
+- var pageDescription = page.description || page.title || config.description || ''
+- var pageKeywords = (config.keywords || []).join(',')
+- if (page.tags && page.tags.data) pageKeywords = page.tags.data.map(function(tag) {return tag.name;}).join(',')
+- if (page.keywords) pageKeywords = page.keywords.join(',')
+- var pageAuthor = config.email ? config.author + ',' + config.email : config.author
+- var pageCopyright = config.copyright || config.author
+
 meta(charset='UTF-8')
 meta(http-equiv="X-UA-Compatible" content="IE=edge")
 meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
@@ -7,11 +23,14 @@ meta(name="author" content=pageAuthor)
 meta(name="copyright" content=pageCopyright)
 title= pageTitle
 link(rel="icon", href=url_for('/favicon.ico'))
-//link(rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css")
 if theme.stylesheets !== undefined && theme.stylesheets.length > 0
-  //- stylesheets list from _config.yml
   each url in theme.stylesheets
     link(rel='stylesheet', href=url)
-each item in theme.cdn.css
-  if item !== undefined
-    link(rel='stylesheet', href=item)
+  each item in theme.cdn.css
+    if item !== undefined
+      link(rel='stylesheet', href=item)
+
+if theme.gitalk.enable
+  link(rel="stylesheet",href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css")
+  script(src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js")

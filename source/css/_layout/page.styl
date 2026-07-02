@@ -2,10 +2,9 @@
 #content-outer
   width: 100%
   padding-top 1rem
+  margin 4rem 0 2rem 0
   position: relative
-
-  #content-inner
-    padding-bottom: 3rem
+  height calc(100vh- 100px)
 
     ul, ol, dl
       margin-top: 0.4rem
@@ -13,13 +12,19 @@
 
   #recent-posts
     margin: auto
-    padding: 2rem
+    padding: 1rem
 
-    .recent-post-item
-      background-color: white;
+   .home-title
+     color: $color-light-black
+     font-size 1.6rem
+     position relative
+     top: -1rem
+
+  .recent-post-item
+      background-color: $color-white;
       margin-bottom: 3rem
-      padding: 10px 20px 10px 20px
-      border-radius: 10px
+      padding: 10px 20px
+      border-radius: 5px
       -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
       -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -27,13 +32,13 @@
       .post-title
         a
           font-size: 1.5rem
-          -webkit-transition: all .1s ease-in-out
-          -moz-transition: all .1s ease-in-out
-          -o-transition: all .1s ease-in-out
-          -ms-transition: all .1s ease-in-out
+          color: $color-light-black
+          font-weight bold
+          -webkit-transition: all 0.2s ease-in-out
+          -moz-transition: all 0.2s ease-in-out
+          -o-transition: all 0.2s ease-in-out
+          -ms-transition: all 0.2s ease-in-out
 
-          &:hover
-            font-weight  500
 
       .post-time
       .recent-post-tags
@@ -44,32 +49,35 @@
       blockquote
         margin: 5px 0
         border-left: .25em solid $color-grey
-        color: #6a737d;
-        padding: 0 1em;
+        color: $color-blockquote-default
+        padding: 0 1em
 
       .recent-post-content
+        a
+          color: $color-link
+          &:hover
+            color: $color-light-blue
         img,video,audio
           width 100%
       .read-more
-        color: #fff
+        color: $color-white
         font-size: 15px
-        background-color: $color-blue
+        background-color: $color-black
         -webkit-transition: background-color .2s ease-in-out
         -moz-transition: background-color .2s ease-in-out
         -o-transition: background-color .2s ease-in-out
         -ms-transition: background-color .2s ease-in-out
-        border-radius: 16px
-        line-height: 2
+        border-radius: 3px
         width: 5rem
         margin: 10px auto
         text-align center
         padding: 0 17px
 
         &:hover
-          background-color: $color-light-blue
+          background-color: $color-light-black
 
         a
-          color: white
+          color: $color-white
 
 
 #about
@@ -77,13 +85,13 @@
 #archive
   margin auto
   padding-bottom: 2rem
+  color: $color-light-black
 
 
 //About
 #about
   min-height: 20rem
   .about-title
-    text-align center
     font-size 2rem
 
   .article-container
@@ -95,12 +103,22 @@
       img
         width 100%
 
+#site-social-icons
+  margin: 0 auto
+  width: 15rem
+  text-align: center
+
+  .social-icon
+    margin: 0 0.5rem
+    color: $color-light-black
+    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15)
+    font-size: 1.4rem
+    cursor: pointer
 
 //Archive
 #article
 .article
   &-title
-    text-align center
     font-size 2rem
 
   &-item
@@ -126,7 +144,6 @@
 //Tag
 #tag
   .tag-title
-    text-align center
     font-size 2rem
 
   ul,li
@@ -140,12 +157,12 @@
     .tag-list-item
       position relative
       padding: 4px 10px
-      border: 1px dashed #a4a4a4
+      border: 1px dashed $color-border
       margin: 10px 15px
       cursor: pointer
 
       &:hover
-        color: $color-light-blue !important
+        background-color: $color-white
 
       .tag-list-count
         position absolute
@@ -154,6 +171,3 @@
     a
       display: block
       margin: 0 0.4rem
-
-      &:hover
-        color: $color-light-blue !important
