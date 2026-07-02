@@ -1,6 +1,4 @@
 <h1><center>hexo-theme-Yin</center></h1>
-
-
 ## Screenshots
 
 ![](https://github.com/Yin-Hongwei/hexo-theme-Yin/blob/master/source/img/theme.jpg)
@@ -23,7 +21,7 @@ Watch online demo：[Hongwei Blog](https://yin-hongwei.github.io/)
 1. Execute the following commands in **Hexo directory**.
 
 ```
-git clone -b master https://github.com/Yin-Hongwei/hexo-theme-Yin
+git clone -b master https://github.com/Yin-Hongwei/hexo-theme-Yin.git
 ```
 
 1. Change the `theme` property to `hexo-theme-Yin` of `_config.yml` in **Hexo directory**.
@@ -45,5 +43,3 @@ npm install hexo-renderer-jade hexo-renderer-sass --save
 [MIT](http://opensource.org/licenses/MIT)
 
 Copyright (c) 2019 Yin-Hongwei
-
- 
