@@ -15,7 +15,7 @@
   <b>中文</b> · <a href="README.en.md">English</a>
 </p>
 
-![](source/img/Yin.png)
+![](source/img/Yin.jpg)
 
 **在线预览：** [Hongwei Blog](https://yin-hongwei.github.io/)
 

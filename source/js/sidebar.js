@@ -42,18 +42,21 @@ $(function () {
     var $active = $('.sidebar-toc__content .toc-link.active')
     if (!$active.length) return
 
-    var $container = $('.sidebar-toc__content')
-    if (!$container.length) return
+    var container = $('.sidebar-toc__content')[0]
+    if (!container) return
 
-    var containerTop = $container.scrollTop()
-    var containerHeight = $container.height()
-    var linkTop = $active.position().top
-    var linkHeight = $active.outerHeight()
+    var active = $active[0]
+    var padding = 12
+    var linkRect = active.getBoundingClientRect()
+    var containerRect = container.getBoundingClientRect()
+    var linkTop = linkRect.top - containerRect.top + container.scrollTop
+    var linkHeight = active.offsetHeight
+    var containerHeight = container.clientHeight
 
-    if (linkTop < 0) {
-      $container.scrollTop(containerTop + linkTop - 12)
-    } else if (linkTop + linkHeight > containerHeight) {
-      $container.scrollTop(containerTop + linkTop - containerHeight + linkHeight + 12)
+    if (linkTop - container.scrollTop < padding) {
+      container.scrollTop = linkTop - padding
+    } else if (linkTop + linkHeight - container.scrollTop > containerHeight - padding) {
+      container.scrollTop = linkTop + linkHeight - containerHeight + padding
     }
   }
 

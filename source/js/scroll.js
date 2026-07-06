@@ -79,7 +79,9 @@ $(function () {
   // toc link scroll
   $('.toc-link').on('click', function (e) {
     e.preventDefault()
-    scrollToHead($(this).attr('href'))
+    var href = $(this).attr('href')
+    scrollToHead(href)
+    activateTocLink(href, true)
   })
 
   // find the scroll direction
@@ -89,25 +91,35 @@ $(function () {
     return result
   }
 
+  function getScrollOffset () {
+    var $header = $('#page-header')
+    return ($header.length ? $header.outerHeight() : 60) + 12
+  }
+
+  function resolveHeading (anchor) {
+    if (!anchor || anchor.charAt(0) !== '#') return $()
+    var id = decodeURIComponent(anchor.slice(1))
+    var el = document.getElementById(id)
+    return el ? $(el) : $()
+  }
+
   // scroll to a head(anchor)
   function scrollToHead (anchor) {
-    var item
-    try {
-      item = $(anchor)
-    } catch (e) {
-      // fix #286 support hexo v5
-      item = $(decodeURI(anchor))
-    }
-    item.velocity('stop').velocity('scroll', {
-      duration: 500,
-      easing: 'easeInOutQuart',
-      offset: -70
+    var item = resolveHeading(anchor)
+    if (!item.length) return
+    window.scrollTo({
+      top: item.offset().top - getScrollOffset(),
+      behavior: 'smooth'
     })
   }
 
   // expand toc-item
-  function expandToc ($item) {
+  function expandToc ($item, immediate) {
     if ($item.is(':visible')) {
+      return
+    }
+    if (immediate) {
+      $item.show()
       return
     }
     $item.velocity('stop').velocity('transition.fadeIn', {
@@ -122,6 +134,29 @@ $(function () {
     }
   }
 
+  function activateTocLink (href, immediate) {
+    if (!href) return
+
+    updateAnchor(href)
+
+    $('.toc-link').removeClass('active')
+    var $link = $('.toc-link[href="' + href + '"]')
+    if (!$link.length) return
+
+    $link.addClass('active')
+
+    var parents = $link.parents('.toc-child')
+    var topLink = (parents.length > 0) ? parents.last() : $link
+    expandToc(topLink.closest('.toc-item').find('.toc-child'), immediate)
+    topLink
+      .closest('.toc-item').siblings('.toc-item')
+      .find('.toc-child').hide()
+
+    if (!immediate && typeof window.scrollActiveTocIntoView === 'function') {
+      window.scrollActiveTocIntoView()
+    }
+  }
+
   // find head position & add active class
   // DOM Hierarchy:
   // ol.toc > (li.toc-item, ...)
@@ -131,11 +166,12 @@ $(function () {
       return false
     }
 
+    var scrollOffset = getScrollOffset()
     var list = $('#post-content').find('h1,h2,h3,h4,h5,h6')
     var currentId = ''
     list.each(function () {
       var head = $(this)
-      if (top > head.offset().top - 75) {
+      if (top > head.offset().top - scrollOffset) {
         currentId = '#' + $(this).attr('id')
       }
     })
@@ -156,22 +192,7 @@ $(function () {
 
     var currentActive = $('.toc-link.active')
     if (currentId && currentActive.attr('href') !== currentId) {
-      updateAnchor(currentId)
-
-      $('.toc-link').removeClass('active')
-      var _this = $('.toc-link[href="' + currentId + '"]')
-      _this.addClass('active')
-
-      var parents = _this.parents('.toc-child')
-      var topLink = (parents.length > 0) ? parents.last() : _this
-      expandToc(topLink.closest('.toc-item').find('.toc-child'))
-      topLink
-        .closest('.toc-item').siblings('.toc-item')
-        .find('.toc-child').hide()
-
-      if (typeof window.scrollActiveTocIntoView === 'function') {
-        window.scrollActiveTocIntoView()
-      }
+      activateTocLink(currentId)
     }
   }
 

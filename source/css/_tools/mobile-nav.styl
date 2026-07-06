@@ -1,7 +1,11 @@
 // Mobile navigation drawer (global selectors — panel may be reparented to body)
 @media screen and (max-width: $sm)
-  #page-header .search--desktop
-    display: none !important
+  #page-header .header-actions
+    gap: 0.35rem
+
+  #page-header .header-actions-main,
+  #page-header .header-actions-tools
+    gap: 0.35rem
 
   #page-header .toggle-menu
     display: inline-flex !important

@@ -3,7 +3,7 @@ $(function () {
   var $toggle = $('.toggle-menu')
   var $menus = $('.mobile-nav-panel')
   var $backdrop = $('.mobile-nav-backdrop')
-  var $origin = $('.header-actions')
+  var $origin = $('.header-actions-main')
   var mobileQuery = window.matchMedia('(max-width: 768px)')
 
   function isMobileNav () {
@@ -17,8 +17,8 @@ $(function () {
       $body.append($backdrop).append($menus)
     } else {
       closeMenu()
-      $origin.append($menus)
-      $origin.after($backdrop)
+      $origin.prepend($menus)
+      $('.header-actions').after($backdrop)
     }
   }
 

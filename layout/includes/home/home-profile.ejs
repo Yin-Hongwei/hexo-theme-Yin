@@ -6,12 +6,4 @@
       <%- partial('includes/shell/header-bar', { coverHeader: true }) %>
     </div>
   </div>
-  <div class="moments-profile-bottom">
-    <div class="moments-profile-bottom-inner">
-      <div class="moments-profile-name"><%= config.title %></div>
-      <a class="moments-profile-avatar" href="<%- url_for('/about') %>" aria-label="<%= config.author %>">
-        <img src="<%- url_for(theme.avatar) %>" alt="<%= config.author %>">
-      </a>
-    </div>
-  </div>
 </div>

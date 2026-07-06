@@ -132,10 +132,9 @@ analytics:
 # ---------- Assets ----------
 cdn:
   css:
-    fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
+    fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
   js:
     jquery: https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
-    anime: https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js
     velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
     velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js
     fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js

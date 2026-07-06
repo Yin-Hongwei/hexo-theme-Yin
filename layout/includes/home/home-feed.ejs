@@ -2,18 +2,14 @@
   <% page.posts.each(function (article) { %>
     <% var link = article.link || article.path; %>
     <div class="moments-item">
-      <a class="moments-avatar" href="<%- url_for('/about') %>" aria-hidden="true" tabindex="-1">
-        <img src="<%- url_for(theme.avatar) %>" alt="<%= config.author %>">
-      </a>
       <div class="moments-body">
-        <div class="moments-header">
-          <a class="moments-name" href="<%- url_for('/about') %>"><%= config.author %></a>
-          <% if (article.top) { %>
-            <span class="moments-sticky">置顶</span>
-          <% } %>
-        </div>
         <div class="moments-content">
-          <a class="moments-title" href="<%- url_for(link) %>"><%= article.title || '无标题' %></a>
+          <div class="moments-title-row">
+            <a class="moments-title" href="<%- url_for(link) %>"><%= article.title || '无标题' %></a>
+            <% if (article.top) { %>
+              <span class="moments-sticky">置顶</span>
+            <% } %>
+          </div>
           <% if (article.excerpt) { %>
             <div class="content"><%- article.excerpt %></div>
             <a class="moments-more" href="<%- url_for(link) %>">全文</a>

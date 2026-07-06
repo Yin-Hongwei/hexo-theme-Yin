@@ -32,7 +32,6 @@ html[data-theme="dark"]
     background: $wechat-dark-bg-card
     border-bottom-color: $wechat-dark-divider
 
-  .moments-name,
   .moments-more,
   .moments-tag
     color: $wechat-dark-link
@@ -46,6 +45,14 @@ html[data-theme="dark"]
   .moments-content,
   .moments-content .content
     color: $wechat-dark-text
+
+  .moments-content .content a:not(.headerlink):not(.fancybox)
+    color: $wechat-dark-link
+    border-bottom-color: rgba($wechat-dark-link, 0.25)
+
+    &:hover
+      color: lighten($wechat-dark-link, 8%)
+      border-bottom-color: rgba($wechat-dark-link, 0.45)
 
   .moments-meta,
   .moments-meta time,
@@ -181,7 +188,10 @@ html[data-theme="dark"]
       color: $wechat-dark-text
       border-bottom-color: $wechat-dark-divider
 
-    h4, h5, h6
+    h4
+      color: $wechat-dark-text
+
+    h5, h6
       color: $wechat-dark-text-muted
 
     a
@@ -282,7 +292,7 @@ html[data-theme="dark"]
       .header-post-title
         color: $wechat-dark-text
 
-      .header-brand-avatar
+      .header-logo
         background: rgba(255, 255, 255, 0.08)
         box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0, 0, 0, 0.35)
 

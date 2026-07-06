@@ -170,7 +170,7 @@ registerAliases([
 ])
 
 hljs.registerAliases(['nuxt'], { languageName: 'vue' })
-hljs.registerAliases(['htm', 'wxml'], { languageName: 'xml' })
+hljs.registerAliases(['htm', 'wxml', 'pom', 'svg', 'xsl', 'xslt', 'spring'], { languageName: 'xml' })
 hljs.registerAliases(['sass'], { languageName: 'scss' })
 hljs.registerAliases(['postcss'], { languageName: 'css' })
 hljs.registerAliases(['terminal', 'console'], { languageName: 'shell' })
@@ -181,6 +181,11 @@ hljs.registerAliases(['react'], { languageName: 'javascript' })
 registerAliases([
   ['nuxt', 'vue'],
   ['htm', 'xml'],
+  ['pom', 'xml'],
+  ['svg', 'xml'],
+  ['xsl', 'xml'],
+  ['xslt', 'xml'],
+  ['spring', 'xml'],
   ['sass', 'scss'],
   ['postcss', 'css'],
   ['terminal', 'shell'],

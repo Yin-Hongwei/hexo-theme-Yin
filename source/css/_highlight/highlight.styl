@@ -225,7 +225,16 @@ figure.highlight
   pre .meta
     color: $highlight-purple
 
+    .keyword
+      color: $highlight-aqua
+
+    .string
+      color: $highlight-green
+
   pre
+    .symbol
+      color: $highlight-orange
+
     .comment
       color: $highlight-comment
 
@@ -254,6 +263,12 @@ figure.highlight
     .tag
       color: $highlight-aqua
 
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
+    .tag .name,
+    .tag .attr
       &::selection
         background: $highlight-selection
         color: $highlight-foreground

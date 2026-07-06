@@ -114,6 +114,11 @@ wechat-article-images()
     display: inline-block
     max-width: 100%
     cursor: zoom-in
+    text-decoration: none
+    border-bottom: none
+
+    &:hover
+      border-bottom: none
 
     &:active img
       opacity: 0.85
@@ -129,7 +134,9 @@ wechat-article-images()
     color: $wechat-text-hint
     font-size: 13px
     line-height: 1.5
-    text-align: left
+    text-align: center
+    text-decoration: none
+    border-bottom: none
 
   wechat-img-grid()
   wechat-post-gallery()

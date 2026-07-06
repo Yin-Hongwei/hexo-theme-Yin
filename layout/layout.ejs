@@ -27,12 +27,24 @@
   <%- partial('includes/shell/footer') %>
   <%- partial('includes/shell/search') %>
   <i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i>
-  <% Object.keys(theme.cdn.js).forEach(function (key) { %>
-    <% var item = theme.cdn.js[key]; %>
-    <% if (item !== undefined) { %>
+  <%
+    var needsFancybox = is_home() || is_post() || is_page();
+    var cdnJsKeys = ['jquery', 'velocity', 'velocity-ui'];
+    if (needsFancybox) cdnJsKeys.push('fancybox');
+    cdnJsKeys.forEach(function (key) {
+      var item = theme.cdn.js[key];
+      if (item !== undefined) {
+  %>
       <script src="<%- url_for(item) %>"></script>
-    <% } %>
-  <% }); %>
+  <%
+      }
+    });
+    var pageScripts = ['/js/utils.js', '/js/transition.js', '/js/menu.js', '/js/scroll.js'];
+    if (needsFancybox) pageScripts.push('/js/moments-grid.js', '/js/fancybox.js');
+    if (is_post()) pageScripts.push('/js/sidebar.js', '/js/copy.js');
+    if (theme.lazyload && theme.lazyload.enable) pageScripts.push('/js/lazyload.js');
+    if (theme.dark_mode && theme.dark_mode.enable) pageScripts.push('/js/dark-mode.js');
+  %>
   <% var searchEnabled = (theme.local_search && theme.local_search.enable) || (theme.algolia_search && theme.algolia_search.enable); %>
   <% if (searchEnabled) { %>
     <script src="<%- url_for('/js/search/search-dialog.js') %>"></script>
@@ -43,10 +55,8 @@
   <% } else if (theme.local_search && theme.local_search.enable) { %>
     <script src="<%- url_for('/js/search/local-search.js') %>" defer></script>
   <% } %>
-  <% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
-    <% theme.scripts.forEach(function (url) { %>
-      <script src="<%- url_for(url) %>" defer></script>
-    <% }); %>
-  <% } %>
+  <% pageScripts.forEach(function (url) { %>
+    <script src="<%- url_for(url) %>" defer></script>
+  <% }); %>
 </body>
 </html>

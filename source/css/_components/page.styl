@@ -70,7 +70,11 @@
   h3
     font-size: 1.125em
 
-  h4, h5, h6
+  h4
+    font-size: 1.0625em
+    color: $color-black-light
+
+  h5, h6
     font-size: 1em
     color: $wechat-text-muted
 
@@ -91,23 +95,6 @@
   em, cite
     font-style: italic
     color: $wechat-text-muted
-
-  ul, ol
-    margin: 0 0 1.25em
-    padding: 0
-
-  ul ul, ol ul
-    padding-left: 0.75em
-
-  ol
-    list-style: decimal
-    padding-left: 1.25em
-
-  li
-    margin: 0.35em 0
-
-    ul, ol
-      margin: 0.35em 0 0
 
   blockquote
     margin: 1.25em 0
@@ -166,6 +153,31 @@
 
   sub
     bottom: -0.2em
+
+// Post/page lists: beat #content-outer #content-inner ul { padding: 0 }
+#post #post-content.article-container,
+#page-content #post-content.article-container
+  ul, ol
+    margin: 0 0 1.25em
+
+  ul
+    list-style: disc outside
+    padding-left: 1.75em
+
+  ul ul, ol ul
+    list-style: circle outside
+    padding-left: 1.5em
+
+  ol
+    list-style: decimal outside
+    padding-left: 1.75em
+
+  li
+    margin: 0.35em 0
+    padding-left: 0.15em
+
+    ul, ol
+      margin: 0.35em 0 0
 
 #site-social-icons
   margin: 0 auto
